@@ -1,0 +1,476 @@
+{
+  "nodes": [
+    {
+      "id": "NVIDIA",
+      "type": "Company"
+    },
+    {
+      "id": "TSMC",
+      "type": "Company"
+    },
+    {
+      "id": "Apple",
+      "type": "Company"
+    },
+    {
+      "id": "Microsoft",
+      "type": "Company"
+    },
+    {
+      "id": "Amazon",
+      "type": "Company"
+    },
+    {
+      "id": "Meta",
+      "type": "Company"
+    },
+    {
+      "id": "Alphabet",
+      "type": "Company"
+    },
+    {
+      "id": "Intel",
+      "type": "Company"
+    },
+    {
+      "id": "AMD",
+      "type": "Company"
+    },
+    {
+      "id": "Samsung",
+      "type": "Company"
+    },
+    {
+      "id": "ASML",
+      "type": "Company"
+    },
+    {
+      "id": "Qualcomm",
+      "type": "Company"
+    },
+    {
+      "id": "Broadcom",
+      "type": "Company"
+    },
+    {
+      "id": "IBM",
+      "type": "Company"
+    },
+    {
+      "id": "Tesla",
+      "type": "Company"
+    },
+    {
+      "id": "Baidu",
+      "type": "Company"
+    },
+    {
+      "id": "Tencent",
+      "type": "Company"
+    },
+    {
+      "id": "SoftBank",
+      "type": "Company"
+    },
+    {
+      "id": "Oracle",
+      "type": "Company"
+    },
+    {
+      "id": "SAP",
+      "type": "Company"
+    },
+    {
+      "id": "Snowflake",
+      "type": "Company"
+    },
+    {
+      "id": "ServiceNow",
+      "type": "Company"
+    },
+    {
+      "id": "Arm",
+      "type": "Company"
+    },
+    {
+      "id": "Dell",
+      "type": "Company"
+    },
+    {
+      "id": "HP",
+      "type": "Company"
+    },
+    {
+      "id": "Alibaba",
+      "type": "Company"
+    },
+    {
+      "id": "Foxconn",
+      "type": "Company"
+    },
+    {
+      "id": "Micron",
+      "type": "Company"
+    },
+    {
+      "id": "Marvell",
+      "type": "Company"
+    },
+    {
+      "id": "Siemens",
+      "type": "Company"
+    }
+  ],
+  "edges": [
+    {
+      "source": "Snowflake",
+      "target": "Microsoft",
+      "relationship": "partners_with",
+      "evidence_count": 3,
+      "recent_articles": []
+    },
+    {
+      "source": "Intel",
+      "target": "Amazon",
+      "relationship": "supplies_to",
+      "evidence_count": 5,
+      "recent_articles": []
+    },
+    {
+      "source": "Apple",
+      "target": "Oracle",
+      "relationship": "joint_venture",
+      "evidence_count": 1,
+      "recent_articles": []
+    },
+    {
+      "source": "NVIDIA",
+      "target": "Apple",
+      "relationship": "licenses",
+      "evidence_count": 2,
+      "recent_articles": []
+    },
+    {
+      "source": "Tencent",
+      "target": "SAP",
+      "relationship": "partners_with",
+      "evidence_count": 5,
+      "recent_articles": []
+    },
+    {
+      "source": "Alphabet",
+      "target": "Arm",
+      "relationship": "acquires",
+      "evidence_count": 4,
+      "recent_articles": []
+    },
+    {
+      "source": "Intel",
+      "target": "Tesla",
+      "relationship": "strategic_alliance",
+      "evidence_count": 3,
+      "recent_articles": []
+    },
+    {
+      "source": "Alibaba",
+      "target": "Micron",
+      "relationship": "partners_with",
+      "evidence_count": 2,
+      "recent_articles": []
+    },
+    {
+      "source": "Arm",
+      "target": "IBM",
+      "relationship": "resells",
+      "evidence_count": 3,
+      "recent_articles": []
+    },
+    {
+      "source": "Amazon",
+      "target": "Alphabet",
+      "relationship": "resells",
+      "evidence_count": 1,
+      "recent_articles": []
+    },
+    {
+      "source": "Apple",
+      "target": "Broadcom",
+      "relationship": "supplies_to",
+      "evidence_count": 3,
+      "recent_articles": []
+    },
+    {
+      "source": "Micron",
+      "target": "Qualcomm",
+      "relationship": "strategic_alliance",
+      "evidence_count": 3,
+      "recent_articles": []
+    },
+    {
+      "source": "Alibaba",
+      "target": "TSMC",
+      "relationship": "services",
+      "evidence_count": 5,
+      "recent_articles": []
+    },
+    {
+      "source": "Microsoft",
+      "target": "Siemens",
+      "relationship": "joint_venture",
+      "evidence_count": 1,
+      "recent_articles": []
+    },
+    {
+      "source": "SoftBank",
+      "target": "Samsung",
+      "relationship": "strategic_alliance",
+      "evidence_count": 3,
+      "recent_articles": []
+    },
+    {
+      "source": "Oracle",
+      "target": "Alphabet",
+      "relationship": "supplies_to",
+      "evidence_count": 1,
+      "recent_articles": []
+    },
+    {
+      "source": "ServiceNow",
+      "target": "Intel",
+      "relationship": "manufactures_for",
+      "evidence_count": 1,
+      "recent_articles": []
+    },
+    {
+      "source": "Micron",
+      "target": "Intel",
+      "relationship": "supplies_to",
+      "evidence_count": 4,
+      "recent_articles": []
+    },
+    {
+      "source": "AMD",
+      "target": "Tesla",
+      "relationship": "resells",
+      "evidence_count": 2,
+      "recent_articles": []
+    },
+    {
+      "source": "Qualcomm",
+      "target": "Alphabet",
+      "relationship": "manufactures_for",
+      "evidence_count": 1,
+      "recent_articles": []
+    },
+    {
+      "source": "SAP",
+      "target": "Snowflake",
+      "relationship": "invests_in",
+      "evidence_count": 5,
+      "recent_articles": []
+    },
+    {
+      "source": "Dell",
+      "target": "Intel",
+      "relationship": "invests_in",
+      "evidence_count": 4,
+      "recent_articles": []
+    },
+    {
+      "source": "Broadcom",
+      "target": "AMD",
+      "relationship": "acquires",
+      "evidence_count": 2,
+      "recent_articles": []
+    },
+    {
+      "source": "ServiceNow",
+      "target": "ASML",
+      "relationship": "partners_with",
+      "evidence_count": 2,
+      "recent_articles": []
+    },
+    {
+      "source": "Foxconn",
+      "target": "TSMC",
+      "relationship": "resells",
+      "evidence_count": 4,
+      "recent_articles": []
+    },
+    {
+      "source": "AMD",
+      "target": "Apple",
+      "relationship": "licenses",
+      "evidence_count": 5,
+      "recent_articles": []
+    },
+    {
+      "source": "Marvell",
+      "target": "Arm",
+      "relationship": "resells",
+      "evidence_count": 2,
+      "recent_articles": []
+    },
+    {
+      "source": "Snowflake",
+      "target": "Baidu",
+      "relationship": "joint_venture",
+      "evidence_count": 4,
+      "recent_articles": []
+    },
+    {
+      "source": "Amazon",
+      "target": "AMD",
+      "relationship": "invests_in",
+      "evidence_count": 2,
+      "recent_articles": []
+    },
+    {
+      "source": "Dell",
+      "target": "SoftBank",
+      "relationship": "acquires",
+      "evidence_count": 3,
+      "recent_articles": []
+    },
+    {
+      "source": "Dell",
+      "target": "Oracle",
+      "relationship": "joint_venture",
+      "evidence_count": 5,
+      "recent_articles": []
+    },
+    {
+      "source": "Broadcom",
+      "target": "Qualcomm",
+      "relationship": "licenses",
+      "evidence_count": 2,
+      "recent_articles": []
+    },
+    {
+      "source": "Tencent",
+      "target": "Baidu",
+      "relationship": "supplies_to",
+      "evidence_count": 1,
+      "recent_articles": []
+    },
+    {
+      "source": "Micron",
+      "target": "Microsoft",
+      "relationship": "invests_in",
+      "evidence_count": 2,
+      "recent_articles": []
+    },
+    {
+      "source": "Alibaba",
+      "target": "ServiceNow",
+      "relationship": "joint_venture",
+      "evidence_count": 5,
+      "recent_articles": []
+    },
+    {
+      "source": "Apple",
+      "target": "Broadcom",
+      "relationship": "joint_venture",
+      "evidence_count": 5,
+      "recent_articles": []
+    },
+    {
+      "source": "Tesla",
+      "target": "Tencent",
+      "relationship": "manufactures_for",
+      "evidence_count": 5,
+      "recent_articles": []
+    },
+    {
+      "source": "Micron",
+      "target": "NVIDIA",
+      "relationship": "supplies_to",
+      "evidence_count": 5,
+      "recent_articles": []
+    },
+    {
+      "source": "HP",
+      "target": "AMD",
+      "relationship": "resells",
+      "evidence_count": 1,
+      "recent_articles": []
+    },
+    {
+      "source": "Samsung",
+      "target": "IBM",
+      "relationship": "invests_in",
+      "evidence_count": 4,
+      "recent_articles": []
+    },
+    {
+      "source": "NVIDIA",
+      "target": "Dell",
+      "relationship": "manufactures_for",
+      "evidence_count": 5,
+      "recent_articles": []
+    },
+    {
+      "source": "HP",
+      "target": "Meta",
+      "relationship": "acquires",
+      "evidence_count": 1,
+      "recent_articles": []
+    },
+    {
+      "source": "Micron",
+      "target": "Snowflake",
+      "relationship": "manufactures_for",
+      "evidence_count": 5,
+      "recent_articles": []
+    },
+    {
+      "source": "SAP",
+      "target": "Alphabet",
+      "relationship": "invests_in",
+      "evidence_count": 3,
+      "recent_articles": []
+    },
+    {
+      "source": "HP",
+      "target": "Meta",
+      "relationship": "acquires",
+      "evidence_count": 5,
+      "recent_articles": []
+    },
+    {
+      "source": "Siemens",
+      "target": "NVIDIA",
+      "relationship": "strategic_alliance",
+      "evidence_count": 3,
+      "recent_articles": []
+    },
+    {
+      "source": "Baidu",
+      "target": "NVIDIA",
+      "relationship": "supplies_to",
+      "evidence_count": 3,
+      "recent_articles": []
+    },
+    {
+      "source": "Marvell",
+      "target": "Foxconn",
+      "relationship": "manufactures_for",
+      "evidence_count": 2,
+      "recent_articles": []
+    },
+    {
+      "source": "TSMC",
+      "target": "Intel",
+      "relationship": "strategic_alliance",
+      "evidence_count": 1,
+      "recent_articles": []
+    },
+    {
+      "source": "Apple",
+      "target": "Dell",
+      "relationship": "services",
+      "evidence_count": 1,
+      "recent_articles": []
+    }
+  ]
+}

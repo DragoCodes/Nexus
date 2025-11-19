@@ -1,0 +1,282 @@
+[
+  {
+    "article_id": "392d4113-e492-4dae-9fe8-dea67b609d0f",
+    "extracted_at": "2024-03-02T08:00:00Z",
+    "triples": [
+      {
+        "entity1": "NVIDIA",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "Alphabet",
+        "entity2_type": "Company",
+        "confidence": 0.75
+      }
+    ]
+  },
+  {
+    "article_id": "9b081938-e8dd-4702-8787-0713c456ba93",
+    "extracted_at": "2024-03-02T08:15:00Z",
+    "triples": [
+      {
+        "entity1": "Samsung",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "AMD",
+        "entity2_type": "Company",
+        "confidence": 0.76
+      }
+    ]
+  },
+  {
+    "article_id": "744cdda1-5266-44ae-bafb-0b76fbefb7b5",
+    "extracted_at": "2024-03-02T08:30:00Z",
+    "triples": [
+      {
+        "entity1": "ASML",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "TSMC",
+        "entity2_type": "Company",
+        "confidence": 0.77
+      }
+    ]
+  },
+  {
+    "article_id": "05ec49c6-5ae9-41ac-8d9f-c156a6540384",
+    "extracted_at": "2024-03-02T08:45:00Z",
+    "triples": [
+      {
+        "entity1": "ASML",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "TSMC",
+        "entity2_type": "Company",
+        "confidence": 0.78
+      }
+    ]
+  },
+  {
+    "article_id": "30819788-b6ef-4629-86f3-1daed5c6c131",
+    "extracted_at": "2024-03-02T09:00:00Z",
+    "triples": [
+      {
+        "entity1": "Amazon",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "TSMC",
+        "entity2_type": "Company",
+        "confidence": 0.79
+      }
+    ]
+  },
+  {
+    "article_id": "667615d0-f19b-4b60-ac2f-c414f4dc6347",
+    "extracted_at": "2024-03-02T09:15:00Z",
+    "triples": [
+      {
+        "entity1": "Microsoft",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "TSMC",
+        "entity2_type": "Company",
+        "confidence": 0.8
+      }
+    ]
+  },
+  {
+    "article_id": "feeea5ac-0963-4b8c-a7d4-d633376f5773",
+    "extracted_at": "2024-03-02T09:30:00Z",
+    "triples": [
+      {
+        "entity1": "AMD",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "Amazon",
+        "entity2_type": "Company",
+        "confidence": 0.81
+      }
+    ]
+  },
+  {
+    "article_id": "0a6d0a46-ba4f-4b2e-a605-43d483d247d9",
+    "extracted_at": "2024-03-02T09:45:00Z",
+    "triples": [
+      {
+        "entity1": "Amazon",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "Samsung",
+        "entity2_type": "Company",
+        "confidence": 0.82
+      }
+    ]
+  },
+  {
+    "article_id": "3113d8ee-7db0-42c5-a3bd-d7e18d2c2e0d",
+    "extracted_at": "2024-03-02T10:00:00Z",
+    "triples": [
+      {
+        "entity1": "Alphabet",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "ASML",
+        "entity2_type": "Company",
+        "confidence": 0.83
+      }
+    ]
+  },
+  {
+    "article_id": "5cf8734b-a611-4464-b9fd-3ffe3856a6f9",
+    "extracted_at": "2024-03-02T10:15:00Z",
+    "triples": [
+      {
+        "entity1": "Amazon",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "NVIDIA",
+        "entity2_type": "Company",
+        "confidence": 0.84
+      }
+    ]
+  },
+  {
+    "article_id": "91d94eb2-d713-412e-831f-839c11ee951f",
+    "extracted_at": "2024-03-02T10:30:00Z",
+    "triples": [
+      {
+        "entity1": "Amazon",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "Alphabet",
+        "entity2_type": "Company",
+        "confidence": 0.85
+      }
+    ]
+  },
+  {
+    "article_id": "b8b2e522-101e-405c-8d34-cc3f4d77caef",
+    "extracted_at": "2024-03-02T10:45:00Z",
+    "triples": [
+      {
+        "entity1": "Intel",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "NVIDIA",
+        "entity2_type": "Company",
+        "confidence": 0.86
+      }
+    ]
+  },
+  {
+    "article_id": "c9605fbb-3897-4d41-99c9-4655c9988318",
+    "extracted_at": "2024-03-02T11:00:00Z",
+    "triples": [
+      {
+        "entity1": "Apple",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "Alphabet",
+        "entity2_type": "Company",
+        "confidence": 0.87
+      }
+    ]
+  },
+  {
+    "article_id": "497857af-0632-4cdf-b9c4-f0471aaf6f45",
+    "extracted_at": "2024-03-02T11:15:00Z",
+    "triples": [
+      {
+        "entity1": "Intel",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "NVIDIA",
+        "entity2_type": "Company",
+        "confidence": 0.88
+      }
+    ]
+  },
+  {
+    "article_id": "7d20b957-3601-4391-98f8-f25454167cb0",
+    "extracted_at": "2024-03-02T11:30:00Z",
+    "triples": [
+      {
+        "entity1": "TSMC",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "Intel",
+        "entity2_type": "Company",
+        "confidence": 0.89
+      }
+    ]
+  },
+  {
+    "article_id": "b0509587-583d-4577-b1a2-81d69096610a",
+    "extracted_at": "2024-03-02T11:45:00Z",
+    "triples": [
+      {
+        "entity1": "Intel",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "AMD",
+        "entity2_type": "Company",
+        "confidence": 0.9
+      }
+    ]
+  },
+  {
+    "article_id": "f00176a0-158f-4710-a396-e6c1e477290f",
+    "extracted_at": "2024-03-02T12:00:00Z",
+    "triples": [
+      {
+        "entity1": "Apple",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "NVIDIA",
+        "entity2_type": "Company",
+        "confidence": 0.91
+      }
+    ]
+  },
+  {
+    "article_id": "ba260c26-eb35-4f76-961b-8d774eed916c",
+    "extracted_at": "2024-03-02T12:15:00Z",
+    "triples": [
+      {
+        "entity1": "Intel",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "Amazon",
+        "entity2_type": "Company",
+        "confidence": 0.92
+      }
+    ]
+  },
+  {
+    "article_id": "b3c68f39-860e-4730-9ec4-73a9233c64f9",
+    "extracted_at": "2024-03-02T12:30:00Z",
+    "triples": [
+      {
+        "entity1": "Microsoft",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "AMD",
+        "entity2_type": "Company",
+        "confidence": 0.93
+      }
+    ]
+  },
+  {
+    "article_id": "391af2ff-6707-4dda-8623-27cb0fe99b38",
+    "extracted_at": "2024-03-02T12:45:00Z",
+    "triples": [
+      {
+        "entity1": "Alphabet",
+        "entity1_type": "Company",
+        "relationship": "collaborates_with",
+        "entity2": "NVIDIA",
+        "entity2_type": "Company",
+        "confidence": 0.94
+      }
+    ]
+  }
+]
