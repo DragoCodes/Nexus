@@ -14,6 +14,11 @@ from datetime import datetime, timedelta
 from typing import List
 
 from faker import Faker
+import sys
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, BASE_DIR)
 
 from ingestion.database import ArticleDatabase
 

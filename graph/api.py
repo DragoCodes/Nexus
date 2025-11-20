@@ -9,6 +9,12 @@ from pathlib import Path
 
 from flask import Blueprint, jsonify, request
 
+import sys
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, BASE_DIR)
+
 from graph.analytics import compute_pagerank, detect_communities, relationship_trends
 from graph.builder import KnowledgeGraphBuilder
 from graph.queries import entity_payload, shortest_path

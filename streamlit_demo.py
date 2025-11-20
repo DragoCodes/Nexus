@@ -63,7 +63,7 @@ st.title("🔷 Nexus – Financial Knowledge Graph")
 def _fetch_json(path: str, params: Dict[str, Any] | None = None) -> Dict[str, Any]:
     url = f"{API_BASE}{path}"
     try:
-        response = requests.get(url, params=params, timeout=10)
+        response = requests.get(url, params=params, timeout=10000)
         response.raise_for_status()
         return response.json()
     except requests.RequestException as exc:

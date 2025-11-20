@@ -20,6 +20,11 @@ from typing import Dict, Iterable, List, Optional
 
 import requests
 from dotenv import load_dotenv
+import sys
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, BASE_DIR)
 
 from ingestion.database import ArticleDatabase
 

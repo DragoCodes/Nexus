@@ -65,14 +65,22 @@ def relationship_trends(
             continue
         try:
             dt = datetime.fromisoformat(timestamp.replace("Z", "+00:00"))
-        except ValueError:
+        except (ValueError, AttributeError):
             continue
         rows.append({"relationship": rel, "timestamp": dt})
 
     if not rows:
-        return []
+        return []  # Return empty list instead of failing
 
     df = pd.DataFrame(rows)
+    
+    # Ensure timestamp is datetime (defensive check)
+    df["timestamp"] = pd.to_datetime(df["timestamp"], errors="coerce")
+    df = df.dropna(subset=["timestamp"])
+    
+    if df.empty:
+        return []
+    
     df["bucket"] = df["timestamp"].dt.to_period(granularity[0].upper()).dt.start_time
     grouped = (
         df.groupby("bucket")

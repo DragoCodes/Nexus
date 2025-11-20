@@ -11,6 +11,12 @@ from typing import Dict, List, Optional
 from dotenv import load_dotenv
 from tenacity import retry, stop_after_attempt, wait_exponential
 
+import sys
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, BASE_DIR)
+
 from extraction.prompts import create_messages
 
 try:

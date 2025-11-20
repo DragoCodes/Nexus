@@ -9,6 +9,12 @@ from typing import Optional
 
 from flask import Blueprint, jsonify, request
 
+import sys
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, BASE_DIR)
+
 from search.indexer import ArticleIndexer
 
 

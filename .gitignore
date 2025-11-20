@@ -37,7 +37,7 @@ lib/
 .env.*.local
 
 # Lock files (using requirements.txt instead)
-uv.lock
+# uv.lock
 
 # IDE files
 .vscode/
