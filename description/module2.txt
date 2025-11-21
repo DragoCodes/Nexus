@@ -1,0 +1,347 @@
+MODULE 2: SEARCH & RETRIEVAL ENGINE
+
+
+BM25 Formula:
+BM25(D, Q) = Σ IDF(qi) × (f(qi, D) × (k1 + 1)) / (f(qi, D) + k1 × (1 - b + b × (|D| / avgdl)))
+Where:
+
+D = document (article)
+Q = query
+qi = each term in the query
+f(qi, D) = frequency of term qi in document D
+|D| = length of document D (number of words)
+avgdl = average document length across all documents
+k1 = 1.5 (tuning parameter, leave as constant)
+b = 0.75 (tuning parameter, leave as constant)
+IDF(qi) = log((N - n(qi) + 0.5) / (n(qi) + 0.5) + 1)
+N = total number of documents
+n(qi) = number of documents containing term qi
+
+Implementation will be step-by-step below.
+
+Text Preprocessing for Financial Text
+Special requirements for financial text:
+
+Preserve stock tickers: $AAPL, $GOOGL, $TSMC
+Preserve percentages: 15%, 3.5%
+Preserve currency amounts: $100M, €50B
+Preserve company suffixes: Inc., Co., Ltd., Corp.
+
+Preprocessing steps:
+
+Tokenization (split on whitespace and punctuation, but preserve special patterns)
+Normalization (lowercase, but keep stock tickers as-is)
+Stop word removal (but keep negations: "not", "no", "never")
+Stemming (Porter Stemmer)
+
+Implementation Instructions for Module 2
+File: src/module2_search/preprocessor.py
+Purpose: Preprocess text for indexing and searching
+Create a class TextPreprocessor with these methods:
+__init__(self):
+
+Download NLTK data:
+
+python  import nltk
+  nltk.download('stopwords')
+  nltk.download('punkt')
+
+Load stopwords: self.stop_words = set(nltk.corpus.stopwords.words('english'))
+Remove these from stop_words: "not", "no", "never", "against"
+Initialize Porter Stemmer: self.stemmer = nltk.stem.PorterStemmer()
+Define regex patterns for special tokens:
+
+python  import re
+  self.stock_ticker_pattern = re.compile(r'\$[A-Z]{1,5}\b')
+  self.percentage_pattern = re.compile(r'\d+\.?\d*%')
+  self.currency_pattern = re.compile(r'[\$€£]\d+\.?\d*[KMB]?')
+  self.company_suffix_pattern = re.compile(r'\b(Inc|Co|Ltd|Corp|LLC)\.')
+_extract_special_tokens(self, text):
+
+Find all special tokens (stock tickers, percentages, currency, company suffixes)
+Store them with their positions
+Return dictionary: {position: token}
+This is so you can preserve them during processing
+
+tokenize(self, text):
+
+First extract special tokens using _extract_special_tokens()
+Use NLTK word tokenizer: nltk.word_tokenize(text)
+Merge special tokens back in at their positions
+Return list of tokens
+
+normalize(self, tokens):
+
+For each token:
+
+If it's a stock ticker (starts with $), keep as-is
+Else, convert to lowercase
+Remove extra whitespace
+
+
+Return normalized tokens
+
+remove_stopwords(self, tokens):
+
+Filter out tokens that are in self.stop_words
+Keep stock tickers even if they match stop words
+Return filtered tokens
+
+stem(self, tokens):
+
+For each token:
+
+If it's a stock ticker or special token, keep as-is
+Else, apply stemming: self.stemmer.stem(token)
+
+
+Return stemmed tokens
+
+preprocess(self, text):
+
+Main method that chains all steps:
+
+Tokenize
+Normalize
+Remove stop words
+Stem
+
+
+Return final list of processed tokens
+
+Important notes:
+
+Handle empty text gracefully (return empty list)
+Log any errors during preprocessing
+Preserve the order of tokens
+
+
+File: src/module2_search/indexer.py
+Purpose: Build an inverted index from the corpus
+Create a class InvertedIndex with these methods:
+__init__(self, preprocessor):
+
+Store reference to TextPreprocessor instance
+Initialize empty data structures:
+
+python  self.index = {}  # {term: [(doc_id, term_freq), ...]}
+  self.doc_lengths = {}  # {doc_id: length}
+  self.avg_doc_length = 0
+  self.num_docs = 0
+build_from_mongodb(self, db_handler):
+
+Fetch all articles from MongoDB using db_handler.get_all_articles()
+For each article:
+
+Combine headline and full_text: text = article['headline'] + " " + article['full_text']
+Preprocess using preprocessor.preprocess(text)
+Count term frequencies in this document
+Store document length
+Update inverted index
+
+
+Calculate average document length
+Log progress every 50 articles
+Print final statistics: number of documents, number of unique terms
+
+How to build the inverted index:
+pythonfrom collections import defaultdict, Counter
+
+for article in articles:
+    doc_id = article['article_id']
+    text = article['headline'] + " " + article['full_text']
+    tokens = self.preprocessor.preprocess(text)
+    
+    # Store document length
+    self.doc_lengths[doc_id] = len(tokens)
+    
+    # Count term frequencies
+    term_freqs = Counter(tokens)
+    
+    # Update inverted index
+    for term, freq in term_freqs.items():
+        if term not in self.index:
+            self.index[term] = []
+        self.index[term].append((doc_id, freq))
+    
+self.num_docs = len(articles)
+self.avg_doc_length = sum(self.doc_lengths.values()) / self.num_docs
+get_postings(self, term):
+
+Return the posting list for a term
+If term not in index, return empty list
+Return: [(doc_id, term_freq), ...]
+
+get_document_frequency(self, term):
+
+Return how many documents contain this term
+Return: len(self.index.get(term, []))
+
+save_to_disk(self, filepath):
+
+Serialize the entire index to disk using pickle
+Save: self.index, self.doc_lengths, self.avg_doc_length, self.num_docs
+Print success message with file size
+
+load_from_disk(self, filepath):
+
+Load serialized index from disk
+Restore all data structures
+Print success message
+
+
+File: src/module2_search/bm25_scorer.py
+Purpose: Calculate BM25 scores for documents
+Create a class BM25Scorer with these methods:
+__init__(self, inverted_index, k1=1.5, b=0.75):
+
+Store reference to InvertedIndex instance
+Store BM25 parameters: k1 and b
+
+calculate_idf(self, term):
+
+Calculate IDF score for a term
+Formula: IDF(term) = log((N - n(term) + 0.5) / (n(term) + 0.5) + 1)
+Where:
+
+N = self.inverted_index.num_docs
+n(term) = self.inverted_index.get_document_frequency(term)
+
+
+Use math.log() for logarithm
+Return IDF score
+
+calculate_bm25_for_document(self, query_terms, doc_id):
+
+Calculate BM25 score for a single document given query terms
+Initialize score = 0
+For each term in query_terms:
+
+Get IDF for this term
+Get term frequency in this document (search through postings list)
+If term not in document, skip
+Get document length: doc_length = self.inverted_index.doc_lengths[doc_id]
+Calculate BM25 component:
+
+
+
+python    numerator = term_freq * (self.k1 + 1)
+    denominator = term_freq + self.k1 * (1 - self.b + self.b * (doc_length / self.inverted_index.avg_doc_length))
+    score += idf * (numerator / denominator)
+
+Return final score
+
+score_all_documents(self, query_terms):
+
+Score all documents that contain at least one query term
+Steps:
+
+Find all documents that contain any query term
+For each document, calculate BM25 score
+Return dictionary: {doc_id: score}
+
+
+
+How to find all relevant documents:
+pythonrelevant_docs = set()
+for term in query_terms:
+    postings = self.inverted_index.get_postings(term)
+    for doc_id, _ in postings:
+        relevant_docs.add(doc_id)
+
+File: src/module2_search/search_engine.py
+Purpose: Provide search interface
+Create a class SearchEngine with these methods:
+__init__(self, inverted_index, db_handler, preprocessor):
+
+Store references to all components
+
+search(self, query, k=10):
+
+Main search method
+Steps:
+
+Preprocess query using preprocessor.preprocess(query)
+If no valid terms after preprocessing, return empty list
+Create BM25Scorer instance
+Get scores for all documents: scores = scorer.score_all_documents(query_terms)
+Sort documents by score (descending)
+Take top-k documents
+Fetch article metadata from MongoDB for these doc_ids
+Format and return results
+
+
+
+Return format:
+python[
+    {
+        "article_id": "abc123",
+        "score": 15.3,
+        "headline": "Tesla announces new partnership",
+        "publication_date": "2024-01-15",
+        "source": "Reuters",
+        "url": "https://..."
+    },
+    ...
+]
+How to fetch metadata efficiently:
+python# Get list of top doc_ids
+top_doc_ids = [doc_id for doc_id, score in sorted_scores[:k]]
+
+# Create score lookup
+score_lookup = {doc_id: score for doc_id, score in sorted_scores}
+
+# Fetch from MongoDB
+articles = db_handler.collection.find({"article_id": {"$in": top_doc_ids}})
+
+# Format results
+results = []
+for article in articles:
+    results.append({
+        "article_id": article['article_id'],
+        "score": score_lookup[article['article_id']],
+        "headline": article['headline'],
+        "publication_date": article['publication_date'],
+        "source": article['source'],
+        "url": article['url']
+    })
+
+# Sort by score
+results.sort(key=lambda x: x['score'], reverse=True)
+
+File: src/module2_search/build_index.py
+Purpose: Script to build and save the index
+What to implement:
+
+Import all necessary modules
+Connect to MongoDB
+Create TextPreprocessor instance
+Create InvertedIndex instance
+Build index from MongoDB: index.build_from_mongodb(db_handler)
+Save index to disk: index.save_to_disk('data/index/inverted_index.pkl')
+Print statistics
+Close connections
+
+Script structure:
+pythonif __name__ == "__main__":
+    print("Starting index build...")
+    
+    # Setup
+    # Build index
+    # Save index
+    
+    print("Index build complete!")
+Important: This script should be run once after ingestion, and whenever new articles are added
+
+Module 2 Completion Checklist
+Before moving to Module 3, verify:
+
+ Text preprocessing handles stock tickers correctly (test with "$AAPL acquisition")
+ Inverted index builds successfully from MongoDB
+ Index can be saved and loaded from disk
+ Searching for "Tesla merger" returns relevant articles
+ Searching for "NVIDIA partnership" returns relevant articles
+ Results are ranked by relevance (highest scores first)
+ Search handles queries with no results gracefully
+ Search handles single-word queries
+ Index loading is fast (under 5 seconds)

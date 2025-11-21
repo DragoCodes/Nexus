@@ -1,0 +1,318 @@
+MODULE 4: KNOWLEDGE GRAPH CONSTRUCTION & MANAGEMENT
+4.1 Architecture Overview
+Graph Storage Strategy:
+
+Use NetworkX for graph operations (in-memory)
+Persist to SQLite database for durability
+Rebuild graph from SQLite on application startup
+Small graph size (50-200 nodes) means fast rebuild (under 1 second)
+
+Database Schema (SQLite):
+Table: entities
+
+entity_name (TEXT PRIMARY KEY)
+entity_type (TEXT) - Company, Person, Product, Organization, Location
+mention_count (INTEGER) - How many times mentioned across all articles
+first_seen (TEXT) - ISO date when first appeared
+last_updated (TEXT) - ISO date when last updated
+
+Table: relationships
+
+id (INTEGER PRIMARY KEY AUTOINCREMENT)
+entity1 (TEXT) - Foreign key to entities
+entity2 (TEXT) - Foreign key to entities
+relationship_type (TEXT) - partners_with, acquires, etc.
+source_article_ids (TEXT) - JSON array of article IDs as evidence
+publication_dates (TEXT) - JSON array of dates
+frequency (INTEGER) - How many times this relationship was reported
+first_seen (TEXT)
+last_updated (TEXT)
+
+Graph Structure (NetworkX):
+
+Nodes represent entities
+Node attributes: name, type, mention_count
+Edges represent relationships (directed graph - use nx.DiGraph())
+Edge attributes: relationship_type, source_article_ids (list), publication_dates (list), frequency
+
+4.2 Implementation Instructions for Module 4
+File: src/module4_graph/graph_manager.py
+Purpose: Manage SQLite database and NetworkX graph synchronization
+Create a class GraphManager:
+Constructor requirements:
+
+Accept SQLite database path (e.g., data/nexus_graph.db)
+Initialize connection to SQLite
+Create tables if they don't exist (use CREATE TABLE IF NOT EXISTS)
+Initialize empty NetworkX directed graph: self.graph = nx.DiGraph()
+Add indexes on entity_name and relationship entity1/entity2 for fast lookups
+
+Method _create_tables() requirements:
+
+Create entities table with proper schema
+Create relationships table with proper schema
+Create indexes for performance
+Create foreign key constraints (entity1 and entity2 reference entities.entity_name)
+
+Method add_or_update_entity(entity_name, entity_type) requirements:
+
+Check if entity exists in SQLite
+If exists: increment mention_count, update last_updated timestamp
+If not exists: insert new row with mention_count=1, set first_seen and last_updated
+Also update NetworkX graph: add node with attributes
+Use SQL UPSERT pattern or INSERT OR REPLACE
+
+Method add_or_update_relationship(entity1, entity2, relationship_type, article_id, publication_date) requirements:
+
+First ensure both entities exist (call add_or_update_entity for each)
+Check if this exact relationship (entity1, entity2, relationship_type) exists in SQLite
+If exists:
+
+Load existing source_article_ids and publication_dates (parse JSON)
+Append new article_id if not already present
+Append new publication_date
+Increment frequency
+Update last_updated
+
+
+If not exists:
+
+Insert new relationship row
+Set source_article_ids as JSON array with single article_id
+Set frequency=1
+Set first_seen and last_updated
+
+
+Also update NetworkX graph: add edge with attributes
+
+Method load_graph_from_db() requirements:
+
+Clear existing NetworkX graph
+Fetch all entities from SQLite
+Add each as node to graph with attributes
+Fetch all relationships from SQLite
+Add each as edge to graph with attributes
+Return the NetworkX graph object
+This method will be called when application starts
+
+Method get_graph() requirements:
+
+Return the current NetworkX graph object
+If graph is empty, call load_graph_from_db() first
+
+Method rebuild_from_extractions(extractions_data) requirements:
+
+Clear all tables (DELETE FROM entities; DELETE FROM relationships;)
+Clear NetworkX graph
+Process all extraction data from Module 3 output
+For each article's relationships, call add_or_update_relationship()
+This is your "rebuild from scratch" function
+Print progress every 20 relationships
+
+Method get_entity_details(entity_name) requirements:
+
+Query SQLite for entity row
+Get all relationships where this entity is entity1 OR entity2
+Return comprehensive dictionary with:
+
+Entity metadata (type, mention_count, dates)
+All incoming relationships (entity → this entity)
+All outgoing relationships (this entity → entity)
+Each relationship should include source article IDs for evidence
+
+
+
+Method get_relationship_trends(relationship_type, start_date, end_date) requirements:
+
+Query relationships table for specific relationship_type
+Filter by publication_dates within date range (parse JSON dates)
+Group by date and count occurrences
+Return time series data: list of (date, count) tuples
+
+Method export_graph_statistics() requirements:
+
+Return dictionary with:
+
+total_entities
+total_relationships
+entities_by_type (count of Companies, Persons, etc.)
+relationships_by_type (count of each relationship type)
+most_connected_entities (top 10 by degree)
+Date range of data (earliest to latest publication_date)
+
+
+
+Important considerations:
+
+Always use transactions for SQLite writes (BEGIN, COMMIT, ROLLBACK)
+Handle JSON serialization/deserialization for arrays in SQLite
+Close database connection properly in destructor
+Add logging for all database operations
+
+
+File: src/module4_graph/graph_analytics.py
+Purpose: Compute analytics on the graph
+Create a class GraphAnalytics:
+Constructor requirements:
+
+Accept a NetworkX graph object
+Store reference to graph
+
+Method compute_pagerank() requirements:
+
+Use NetworkX built-in: nx.pagerank(self.graph)
+Returns dictionary: {entity_name: score}
+Sort by score descending
+Return top 20 entities with scores
+Include entity type in results
+
+Method detect_communities() requirements:
+
+For directed graphs, use: nx.community.louvain_communities(self.graph.to_undirected())
+Convert to undirected first because community detection works better on undirected
+Returns list of sets (each set is a community)
+Format output as list of dictionaries:
+
+  [
+    {
+      "community_id": 0,
+      "entities": ["NVIDIA", "AMD", "Intel"],
+      "size": 3,
+      "description": "Tech Hardware Community"
+    }
+  ]
+
+Generate simple description based on most common entity types in community
+
+Method get_entity_centrality(entity_name) requirements:
+
+Calculate multiple centrality measures for a specific entity:
+
+Degree centrality (both in-degree and out-degree)
+Betweenness centrality
+Closeness centrality
+
+
+Return dictionary with all measures and explanations
+
+Method get_ego_network(entity_name, radius=1) requirements:
+
+Extract ego network (subgraph centered on entity)
+Use NetworkX: nx.ego_graph(self.graph, entity_name, radius=radius)
+Return subgraph
+This will be useful for focused visualizations
+
+Method find_shortest_path(entity1, entity2) requirements:
+
+Find shortest path between two entities
+Use NetworkX: nx.shortest_path(self.graph, entity1, entity2)
+Return list of entities in path
+If no path exists, return None
+Include relationship types along the path for context
+
+Method get_network_statistics() requirements:
+
+Calculate overall graph statistics:
+
+Number of nodes and edges
+Average degree
+Network density
+Number of connected components
+Average clustering coefficient
+Diameter (if graph is connected)
+
+
+Return dictionary with all statistics and brief explanations
+
+
+File: src/module4_graph/graph_builder.py
+Purpose: Orchestrate graph building from extraction results
+Create a class GraphBuilder:
+Constructor requirements:
+
+Accept GraphManager instance
+
+Method build_from_extraction_file(extraction_file_path) requirements:
+
+Load the JSON file from Module 3 (contains all extracted relationships)
+Parse JSON into memory
+Call graph_manager.rebuild_from_extractions(data)
+Print statistics about graph building:
+
+Total articles processed
+Total relationships found
+Total unique entities
+Total unique relationships
+Time taken
+
+
+
+Method incremental_update(new_extractions) requirements:
+
+For smaller updates (few articles)
+Don't rebuild from scratch
+Just call add_or_update_relationship() for each new relationship
+Useful when adding today's news
+Print what was added
+
+Method validate_graph() requirements:
+
+Check graph integrity:
+
+All edges connect existing nodes
+No self-loops (entity relating to itself)
+All required attributes present
+No duplicate relationships
+
+
+Return validation report
+Fix any issues found automatically if possible
+
+
+File: src/module4_graph/main.py
+Purpose: Main script to build the knowledge graph
+Script requirements:
+
+Initialize GraphManager with SQLite database path
+Initialize GraphBuilder
+Load extraction results from Module 3 output file
+Build graph using build_from_extraction_file()
+Run validation using validate_graph()
+Initialize GraphAnalytics
+Compute and save analytics:
+
+PageRank results
+Community detection results
+Network statistics
+
+
+Save analytics to JSON files (for quick loading in frontend)
+Print comprehensive summary
+
+Output files to generate:
+
+data/exports/pagerank_results.json
+data/exports/communities.json
+data/exports/network_stats.json
+
+Important features:
+
+Add timer to measure build time
+Create backup of old SQLite database before rebuild
+Generate a build report (text file with all statistics)
+
+
+Module 4 Completion Checklist
+Before moving to Module 5, verify:
+
+ SQLite database is created with proper schema
+ Can add entities and relationships to both SQLite and NetworkX
+ Graph can be loaded from SQLite into NetworkX
+ Rebuild from scratch works with extraction file
+ PageRank computation works and returns reasonable results
+ Community detection works and creates logical groupings
+ Can query entity details with all relationships
+ Graph statistics are accurate
+ Database file size is reasonable (should be under 10 MB for small graph)
+ Graph loading is fast (under 2 seconds)
+

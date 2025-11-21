@@ -1,0 +1,161 @@
+MODULE 5: ANALYTICS & API LAYER
+5.1 Architecture Decision
+Since you chose direct module imports, we'll create a simple Python module that Streamlit can import directly. No REST API needed. This simplifies the architecture significantly.
+5.2 Implementation Instructions for Module 5
+File: src/module5_api/models.py
+Purpose: Define data models for type safety and consistency
+Create Pydantic models for:
+ArticleSearchResult:
+
+article_id: str
+score: float
+headline: str
+publication_date: datetime
+source: str
+url: str
+
+EntityDetails:
+
+entity_name: str
+entity_type: str
+mention_count: int
+incoming_relationships: list (entities connecting TO this entity)
+outgoing_relationships: list (entities connecting FROM this entity)
+total_degree: int
+
+PageRankResult:
+
+entity_name: str
+entity_type: str
+score: float
+rank: int
+
+Community:
+
+community_id: int
+entities: list[str]
+size: int
+dominant_types: dict (count of each entity type)
+description: str
+
+TrendDataPoint:
+
+date: str
+count: int
+relationship_type: str
+
+NetworkStatistics:
+
+total_entities: int
+total_relationships: int
+average_degree: float
+density: float
+description: str
+
+These models will help with data validation and provide clear interfaces.
+
+File: src/module5_api/app.py
+Purpose: Main application interface (replaces REST API)
+Create a class NexusApp:
+Constructor requirements:
+
+Initialize all components:
+
+MongoDB connection
+SearchEngine (load index from disk)
+GraphManager (load graph from SQLite)
+GraphAnalytics
+
+
+Store all as instance variables
+This happens once when Streamlit starts
+
+Method search_articles(query, k=10) requirements:
+
+Call search engine
+Return list of ArticleSearchResult objects
+Handle empty results gracefully
+Add timing information
+
+Method get_entity_details(entity_name) requirements:
+
+Get entity information from GraphManager
+Format as EntityDetails object
+Include visualization data (for ego network)
+Return None if entity not found
+
+Method get_all_entities(entity_type=None) requirements:
+
+Get list of all entities from graph
+Filter by type if specified
+Return sorted list (by mention_count descending)
+Useful for dropdowns in UI
+
+Method compute_pagerank() requirements:
+
+Call GraphAnalytics.compute_pagerank()
+Format as list of PageRankResult objects
+Cache results (don't recompute every time)
+Add cache invalidation when graph is rebuilt
+
+Method detect_communities() requirements:
+
+Call GraphAnalytics.detect_communities()
+Format as list of Community objects
+Cache results
+Add descriptions based on entity composition
+
+Method get_relationship_trends(relationship_type, start_date=None, end_date=None) requirements:
+
+Query GraphManager for trend data
+Group by date (daily or weekly depending on range)
+Return list of TrendDataPoint objects
+If dates not specified, use full data range
+
+Method get_network_statistics() requirements:
+
+Call GraphAnalytics.get_network_statistics()
+Format as NetworkStatistics object
+Add human-readable descriptions
+Cache results
+
+Method get_graph_for_visualization(filter_type=None, min_connections=1) requirements:
+
+Get full NetworkX graph from GraphManager
+Apply filters if specified:
+
+Filter by entity type
+Remove low-degree nodes (less than min_connections)
+
+
+Return filtered graph object
+This will be passed to visualization component
+
+Method rebuild_graph() requirements:
+
+Re-run extraction on all articles
+Rebuild graph from scratch
+Invalidate all caches
+Return success/failure status
+This is for the "Refresh Data" button in UI
+
+Important considerations:
+
+Implement singleton pattern (only one instance of NexusApp)
+Use Streamlit's @st.cache_data and @st.cache_resource decorators
+Handle all errors gracefully with user-friendly messages
+Add progress indicators for long operations
+
+
+5.3 Module 5 Completion Checklist
+Before moving to Frontend, verify:
+
+ Can import NexusApp in a test script
+ All methods return properly formatted data
+ Search works and returns results
+ Entity details are comprehensive
+ PageRank and communities can be computed
+ Trend data is aggregated correctly
+ Graph can be retrieved for visualization
+ Error handling works (test with invalid inputs)
+ Performance is acceptable (all operations under 2 seconds)

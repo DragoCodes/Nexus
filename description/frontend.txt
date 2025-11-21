@@ -1,0 +1,473 @@
+
+MODULE 6: STREAMLIT FRONTEND
+6.1 Architecture & User Experience Design
+Goal: Create an intuitive interface that clearly demonstrates the value of the knowledge graph.
+Navigation Structure:
+
+Home/Dashboard - Overview, statistics, quick insights
+News Search - Search articles with BM25
+Knowledge Graph - Interactive graph visualization (THE CENTERPIECE)
+Analytics - PageRank and Community Detection results
+Trends - Time-series analysis of relationships
+
+6.2 Visualization Strategy for Meaningful Graph Display
+Critical for demonstrating value:
+Visual Design Principles:
+
+Node sizing - Size nodes by importance (PageRank score or degree)
+Node coloring - Color by entity type (Company=blue, Person=green, etc.)
+Edge styling - Different colors/styles for relationship types
+Labels - Show entity names clearly, make them readable
+Layout - Use force-directed layout for natural clustering
+Interactivity - Click nodes to see details, hover for information
+
+PyVis Configuration for Maximum Impact:
+
+Enable physics simulation for dynamic layout
+Set appropriate repulsion/attraction forces
+Add node hover tooltips with entity details
+Add edge hover tooltips with relationship type and evidence
+Enable node dragging for manual arrangement
+Set appropriate canvas size (1000x700 pixels minimum)
+
+To make it "meaningful":
+
+Highlight key players (largest nodes with labels)
+Show relationship diversity through colors
+Create visual clusters (communities should group together naturally)
+Add legend explaining node colors and sizes
+Include statistics panel next to graph
+
+
+6.3 Implementation Instructions for Frontend
+File: frontend/app.py
+Purpose: Main Streamlit application (Home page)
+Page structure:
+Sidebar requirements:
+
+App title 
+Navigation menu (use st.sidebar.page_link or st.navigation)
+Data refresh button
+Statistics summary:
+
+Total articles
+Total entities
+Total relationships
+Last updated timestamp
+
+
+
+Main content requirements:
+
+Hero section:
+
+Project title and tagline
+Brief description of what the system does
+Key value propositions (3-4 bullet points)
+
+
+Quick Statistics Dashboard:
+
+Display network statistics in metric cards using st.metric()
+Top 5 most influential entities (PageRank)
+Relationship type distribution (bar chart)
+Entity type distribution (pie chart)
+
+
+Recent Activity:
+
+Latest 5 articles ingested
+Latest relationships discovered
+Community detection snapshot
+
+
+
+Implementation notes:
+
+Use st.set_page_config() with wide layout
+Add custom CSS for better styling
+Initialize NexusApp once using st.session_state
+Add loading spinners for slow operations
+Use columns for better layout (st.columns())
+
+
+File: frontend/pages/1_📰_News_Search.py
+Purpose: Search interface for articles
+Page structure:
+Search Interface:
+
+Large search box with placeholder text ("Search financial news...")
+Number of results selector (dropdown: 10, 20, 50)
+Search button
+Advanced options (expandable):
+
+Date range filter
+Source filter
+
+
+
+Results Display:
+
+For each result, show card with:
+
+Headline (clickable link to original article)
+Source and publication date
+BM25 relevance score
+Excerpt (first 200 characters of article text)
+"View in Graph" button (highlights related entities in graph)
+
+
+
+Empty State:
+
+If no results, show helpful message with search tips
+Example searches
+
+Implementation notes:
+
+Use st.form() for search to prevent reruns on every keystroke
+Display results in st.container() for better styling
+Add pagination if more than 50 results
+Highlight search terms in excerpts
+
+
+File: frontend/pages/2_🕸️_Knowledge_Graph.py
+Purpose: Interactive graph visualization (MAIN FEATURE)
+This is the most important page - spend time making it impressive!
+Page structure:
+Controls Panel (left sidebar or top):
+
+Filters:
+
+Entity type filter (multiselect: Company, Person, Product, etc.)
+Relationship type filter (multiselect)
+Minimum connections slider (filter out low-degree nodes)
+Date range filter (show only relationships from specific period)
+
+
+View Options:
+
+Node size by: [PageRank, Degree, Mention Count]
+Color scheme selector
+Show labels toggle
+Physics simulation toggle
+
+
+Search:
+
+Entity search box (autocomplete from entity list)
+"Focus on Entity" button (creates ego network view)
+
+
+
+Graph Visualization (main area):
+
+Large PyVis interactive graph
+Render using streamlit.components.html()
+Full width, 700-800px height
+
+Details Panel (right sidebar or bottom):
+
+Selected Entity Details:
+
+When node is clicked, show:
+
+Entity name and type
+Mention count
+PageRank score
+All relationships (incoming and outgoing)
+Source articles (links)
+
+
+
+
+Graph Statistics:
+
+Current view: X nodes, Y edges
+Density, average degree
+Date range covered
+
+
+
+Legend:
+
+Color-coded entity types
+Node size explanation
+Edge type examples
+
+Implementation notes:
+
+Use st.cache_data to cache graph generation
+Regenerate graph only when filters change
+Add download button (export graph as PNG or GraphML)
+Add "Reset View" button
+Show loading spinner while generating graph
+
+
+File: frontend/components/graph_visualizer.py
+Purpose: Reusable graph visualization component
+Create function create_interactive_graph(nx_graph, config_options):
+Parameters:
+
+nx_graph: NetworkX graph object
+config_options: Dictionary with visualization settings
+
+node_size_by: str
+color_scheme: dict
+show_labels: bool
+physics_enabled: bool
+width: str
+height: str
+
+
+
+Implementation requirements:
+
+Create PyVis Network object:
+
+   from pyvis.network import Network
+   net = Network(height=height, width=width, directed=True)
+
+Configure physics:
+
+   net.set_options("""
+   {
+     "physics": {
+       "enabled": true,
+       "forceAtlas2Based": {
+         "gravitationalConstant": -50,
+         "centralGravity": 0.01,
+         "springLength": 200
+       }
+     }
+   }
+   """)
+
+Add nodes from NetworkX graph:
+
+For each node, calculate size based on config (PageRank, degree, etc.)
+Assign color based on entity type
+Add hover tooltip with entity details
+Add node to PyVis network
+
+
+Add edges from NetworkX graph:
+
+For each edge, get relationship type
+Assign color based on relationship type
+Add hover tooltip showing relationship and evidence
+Set edge width based on frequency (more mentions = thicker edge)
+
+
+Generate HTML:
+
+Call net.generate_html()
+Return HTML string
+
+
+Display in Streamlit:
+
+Use components.html(html_string, height=height)
+
+
+
+Styling requirements:
+
+Node colors by entity type:
+
+Company: #1f77b4 (blue)
+Person: #2ca02c (green)
+Product: #ff7f0e (orange)
+Organization: #d62728 (red)
+Location: #9467bd (purple)
+
+
+Node size calculation:
+
+If size_by == "PageRank": size = pagerank_score * 1000
+If size_by == "Degree": size = degree * 10
+Minimum size: 10, Maximum size: 50
+
+
+Edge colors by relationship type:
+
+acquires: red
+partners_with: green
+invests_in: gold
+supplies_to: blue
+competes_with: orange
+Default: gray
+
+
+
+Make it look professional:
+
+Smooth edges
+Appropriate spacing
+Clear labels (only show for important nodes)
+Responsive to interactions
+
+
+File: frontend/pages/3_📊_Analytics.py
+Purpose: Display PageRank and Community Detection results
+Page structure:
+Tab 1: PageRank (Influence Analysis):
+
+Explanation section:
+
+Brief explanation of PageRank in financial context
+"PageRank identifies the most influential entities based on their connections"
+
+
+Top Influential Entities:
+
+Table or cards showing top 20 entities
+Columns: Rank, Entity Name, Entity Type, PageRank Score
+Sparkline or bar showing relative scores
+Click entity to see details
+
+
+Visualization:
+
+Bar chart of top 10
+Option to filter by entity type
+
+
+Insights:
+
+Automatically generate insights:
+
+"Most influential company: NVIDIA with score 0.045"
+"Top 3 sectors by influence: Tech, Finance, Energy"
+"5 emerging players (high recent growth)"
+
+
+
+
+
+Tab 2: Community Detection:
+
+Explanation section:
+
+"Communities are groups of entities that are closely connected"
+Shows business ecosystems, supply chains, competitive clusters
+
+
+Community Cards:
+
+For each community, display card with:
+
+Community ID and size
+Member entities (show top 5, expandable to see all)
+Dominant entity types
+Description/interpretation
+"View in Graph" button (filters main graph to show this community)
+
+
+
+
+Community Comparison:
+
+Table comparing all communities
+Metrics: size, density, average degree
+
+
+Visualization:
+
+Graph colored by community membership
+Or: Separate small graphs for each community
+
+
+
+Implementation notes:
+
+Use st.tabs() for two tabs
+Use st.dataframe() for sortable tables
+Use plotly for interactive charts
+Add export buttons (CSV, JSON)
+
+
+File: frontend/pages/4_📈_Trends.py
+Purpose: Time-series analysis of relationships
+Page structure:
+Controls:
+
+Relationship type selector (dropdown)
+Date range picker
+Aggregation level (daily/weekly/monthly)
+Entity filter (optional - show trends for specific entities)
+
+Main Visualization:
+
+Line chart showing relationship frequency over time
+X-axis: Date
+Y-axis: Count of relationships
+Multiple lines if comparing relationship types
+
+Insights Panel:
+
+Peak dates (when was activity highest?)
+Trend direction (increasing/decreasing?)
+Anomalies (unusual spikes or drops?)
+Correlation with market events (if data available)
+
+Comparison Mode:
+
+Compare multiple relationship types
+Compare same relationship across different time periods
+Heatmap showing relationship activity
+
+Article Explorer:
+
+Click on any point in chart to see articles from that date
+Filter articles by relationship type
+
+Implementation notes:
+
+Use plotly for interactive time-series charts
+Add zoom and pan capabilities
+Include data table below chart
+Add annotations for significant dates
+
+
+6.4 User Experience Enhancements
+To make the graph "meaningful" and impressive:
+
+Add a "Story Mode":
+
+Guided tour feature that walks users through interesting findings
+Example: "Let's explore NVIDIA's ecosystem..."
+Highlights key nodes, explains relationships step-by-step
+
+
+Entity Deep Dive:
+
+Dedicated page for exploring single entity in detail
+Shows ego network, all relationships, timeline of mentions
+Competitive analysis (who are their competitors, partners, suppliers?)
+
+
+Search by Question:
+
+Natural language queries like:
+
+"Who are Apple's suppliers?"
+"Show me all acquisitions in the tech sector"
+"What companies compete with Tesla?"
+
+
+Parse query and filter graph accordingly
+
+
+Comparison Tool:
+
+Compare two entities side-by-side
+Show differences in connections, influence, community membership
+Find shortest path between them
+
+
+Export & Sharing:
+
+Export graph as image (PNG, SVG)
+Export data as CSV/JSON
+Generate shareable report (PDF with key findings)

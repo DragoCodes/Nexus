@@ -1,0 +1,331 @@
+MODULE 3: INFORMATION EXTRACTION
+
+Prompt Design Strategy
+You need to create a prompt that:
+
+Clearly defines the task - Tell the LLM it's extracting financial relationships
+Lists entity types - Company, Person, Product, Organization, Location
+Lists relationship types - Create a controlled vocabulary (about 15-20 types)
+Shows output format - JSON structure with exact field names
+Provides 2-3 examples - Show input article text and expected JSON output
+Handles edge cases - What to do if no relationships found, what to do with ambiguous entities
+
+Recommended relationship vocabulary:
+
+acquires / acquired_by
+partners_with
+invests_in / receives_investment_from
+supplies_to / sources_from
+competes_with
+employs / works_for / appoints
+owns / owned_by
+sues / sued_by
+regulates / regulated_by
+announces
+launches
+merges_with
+
+Critical prompt instructions:
+
+Return ONLY valid JSON, no preamble, no explanation
+If no relationships found, return empty array []
+Use exact entity names as they appear in text
+Avoid pronouns - resolve "it", "they", "the company" to actual names
+Extract only explicitly stated relationships, not implied ones
+Maximum 20 relationships per article (to control costs)
+
+Implementation Instructions for Module 3
+File: src/module3_extraction/llm_client.py
+Purpose: Handle Gemini API communication with retry logic
+Create a class GeminiClient:
+Constructor requirements:
+
+Accept API key as parameter
+Initialize the Gemini client using google.generativeai.configure(api_key=api_key)
+Store model name: gemini-1.5-flash
+Create a generation config with:
+
+temperature: 0 (for consistent extraction)
+max_output_tokens: 2048
+response_mime_type: "application/json" (this is KEY - forces JSON output)
+
+
+
+Method extract(prompt_text) requirements:
+
+Call the Gemini API with the prompt
+Implement retry logic:
+
+Maximum 3 retries
+Exponential backoff: wait 2^attempt seconds between retries
+Handle specific errors:
+
+Rate limit (429): wait 60 seconds before retry
+Server error (500-599): wait 10 seconds before retry
+Invalid API key (401): raise exception immediately, don't retry
+Network timeout: retry with backoff
+
+
+
+
+Log every API call with: timestamp, prompt length (in characters), response length, attempt number
+Return the response text as string
+If all retries fail, return None and log the error
+
+Important considerations:
+
+Gemini has a requests per minute limit (15 for free tier)
+Add a small delay (4-5 seconds) between successful calls to avoid rate limiting
+Track API call count and cost (free tier has daily limits)
+
+
+File: src/module3_extraction/prompt_manager.py
+Purpose: Manage prompt templates and formatting
+Create a class PromptManager:
+Constructor requirements:
+
+Load the base prompt template from a string or file
+Store example relationships for the prompt (2-3 good examples)
+
+Method generate_extraction_prompt(article_text, article_headline) requirements:
+
+Truncate article_text if longer than 3500 words (to stay within token limits)
+Combine headline and text for better context
+Insert the article into your prompt template
+Return complete formatted prompt
+
+Base prompt template structure:
+[System instructions]
+[Entity type definitions]
+[Relationship type definitions]
+[Output format specification]
+[2-3 examples]
+[Current article to process]
+Key instructions to include in prompt:
+
+Be explicit: "Return ONLY a JSON array. No markdown. No explanation."
+"If you find no relationships, return an empty array: []"
+"Extract maximum 20 relationships per article"
+"Use entity names exactly as they appear in the text"
+"Resolve pronouns to actual entity names"
+
+Prompt optimization tips:
+
+Keep system instructions concise
+Put examples BEFORE the article to process
+Use clear formatting with line breaks
+Test with 5-10 sample articles and refine based on output quality
+
+
+File: src/module3_extraction/output_parser.py
+Purpose: Parse and validate LLM responses
+Create a class ExtractionParser:
+Method parse(llm_response) requirements:
+
+Handle cases where LLM adds markdown: json ... 
+Strip whitespace
+Try to parse as JSON
+If parsing fails, try to find JSON array within the text (use regex)
+If still fails, log error and return None
+Call validate_extractions() on parsed data
+Return validated list of relationship objects
+
+Method validate_extractions(extractions_list) requirements:
+
+Check that input is a list
+For each relationship object, validate:
+
+Has all required fields: entity1, entity1_type, relationship, entity2, entity2_type
+Field values are not empty strings
+Relationship type is in the allowed vocabulary (convert to lowercase, check against list)
+Entity types are in allowed list: ["Company", "Person", "Product", "Organization", "Location"]
+entity1 and entity2 are different (no self-relationships)
+
+
+Filter out invalid relationships
+Log how many were filtered out and why
+Return list of valid relationships only
+
+Method normalize_relationship(rel_obj) requirements:
+
+Convert relationship type to lowercase with underscores
+Standardize entity types (capitalize first letter)
+Trim whitespace from entity names
+Return normalized object
+
+Error handling strategy:
+
+Don't crash on bad LLM output, always return something (even if empty list)
+Log all validation failures with details
+Track statistics: total received, valid, invalid
+
+
+File: src/module3_extraction/cache.py
+Purpose: Cache extraction results to avoid redundant API calls
+Create a class ExtractionCache:
+Constructor requirements:
+
+Accept cache file path (e.g., data/cache/extraction_cache.json)
+Initialize empty cache dictionary
+Load existing cache from disk if file exists
+
+Method get(article_id) requirements:
+
+Check if article_id is in cache
+Return cached result or None
+Log cache hit/miss
+
+Method set(article_id, extractions) requirements:
+
+Store extractions in cache with article_id as key
+Automatically save to disk after every update (or batch updates)
+Include metadata: timestamp, number of relationships
+
+Method exists(article_id) requirements:
+
+Return boolean indicating if article is cached
+
+Method save() requirements:
+
+Serialize cache to JSON file
+Use pretty printing for readability (indent=2)
+Handle file write errors gracefully
+
+Method load() requirements:
+
+Load cache from JSON file
+Handle missing file (create new cache)
+Handle corrupted file (backup old file, start fresh)
+
+Cache structure suggestion:
+json{
+  "article_abc123": {
+    "extracted_at": "2024-01-15T10:30:00",
+    "relationships": [...],
+    "relationship_count": 5
+  }
+}
+Important considerations:
+
+Cache is critical for cost savings (LLM APIs are expensive)
+Always check cache BEFORE calling LLM
+Never delete cache accidentally
+Consider cache invalidation strategy (maybe re-extract old articles after X months)
+
+
+File: src/module3_extraction/extraction_service.py
+Purpose: Orchestrate the extraction process
+Create a class ExtractionService:
+Constructor requirements:
+
+Accept instances of: GeminiClient, PromptManager, ExtractionParser, ExtractionCache
+Initialize statistics tracking: API calls made, cache hits, successful extractions, failed extractions
+
+Method extract_from_article(article_id, article_headline, article_text) requirements:
+
+Check cache first using cache.get(article_id)
+If cache hit, increment cache hit counter and return cached result
+If cache miss:
+
+Generate prompt using prompt_manager.generate_extraction_prompt()
+Call LLM using llm_client.extract()
+Parse response using parser.parse()
+If parsing successful, cache result using cache.set()
+Return relationships
+
+
+Handle errors at each step and log them
+Return empty list on total failure (don't crash)
+
+Method batch_extract(articles, batch_size=10, delay_between_batches=30) requirements:
+
+Process articles in batches to manage rate limits
+For each batch:
+
+Process articles sequentially
+Add 4-5 second delay between API calls within batch
+After completing batch, wait delay_between_batches seconds
+Save cache after each batch (in case of interruption)
+Print progress: "Processed 50/200 articles, Cache hits: 10, API calls: 40"
+
+
+Return aggregate statistics and all extracted relationships
+Implement graceful interruption handling (save progress if user stops)
+
+Method get_statistics() requirements:
+
+Return dictionary with:
+
+total_articles_processed
+cache_hits
+api_calls_made
+successful_extractions
+failed_extractions
+total_relationships_extracted
+average_relationships_per_article
+
+
+
+Cost tracking consideration:
+
+Log approximate cost based on token usage
+Gemini 1.5 Flash pricing (as of 2024): ~$0.075 per 1M input tokens, ~$0.30 per 1M output tokens
+Estimate tokens: roughly 4 characters per token
+Print cost estimate after batch processing
+
+
+File: src/module3_extraction/main.py
+Purpose: Main script to run extraction on corpus
+Script requirements:
+
+Connect to MongoDB
+Fetch all articles (or specify a limit for incremental processing)
+Initialize all components: GeminiClient, PromptManager, ExtractionParser, ExtractionCache, ExtractionService
+Run batch extraction
+Save all extracted relationships to a JSON file (for Module 4)
+Print detailed statistics
+Estimate and print total API cost
+
+Output file structure (for Module 4):
+json[
+  {
+    "article_id": "abc123",
+    "publication_date": "2024-01-15",
+    "relationships": [
+      {
+        "entity1": "Tesla",
+        "entity1_type": "Company",
+        "relationship": "partners_with",
+        "entity2": "Panasonic",
+        "entity2_type": "Company"
+      }
+    ]
+  }
+]
+Important script features:
+
+Accept command line arguments: number of articles to process, force re-extraction (ignore cache)
+Resume capability: if interrupted, should be able to continue where it left off
+Progress saving: save intermediate results every 50 articles
+Detailed logging: save log file with all extraction attempts, errors, and timings
+
+
+Module 3 Completion Checklist
+Before moving to Module 4, verify:
+
+ Gemini API connection works and returns JSON
+ Prompt generates consistent, valid JSON output
+ Test with 5 sample articles manually - are relationships accurate?
+ Cache is working - second extraction of same article should be instant
+ Batch processing completes without crashes
+ Error handling works - API failures don't stop entire batch
+ Have extracted relationships for at least 100 articles
+ Extraction output file is properly formatted for Module 4
+ Cost estimation is reasonable (should be under $5 for 500 articles)
+
+Quality check:
+
+Manually review 10 random extraction results
+Check for common errors: hallucinated entities, wrong relationship types, missed relationships
+Refine prompt if quality is below 80% accuracy
+Consider adding more examples to prompt if specific error patterns emerge

@@ -1,0 +1,183 @@
+Complete Technical Implementation Guide for "Nexus" Financial Intelligence Knowledge Graph
+Table of Contents
+
+Project Setup & Prerequisites
+Development Roadmap
+Detailed Module Implementation Instructions
+Streamlit Frontend Implementation
+Documentation Requirements
+
+
+1. PROJECT SETUP & PREREQUISITES
+1.1 Required Accounts & API Keys
+Before writing any code, you must obtain:
+
+News API Account
+
+Sign up at newsapi.org
+Get your API key (free tier provides 100 requests/day)
+Document the rate limits (requests per minute/day)
+Note: Free tier only provides articles from the last 30 days
+
+
+Google Gemini API
+
+Sign up at ai.google.dev
+Get API key from Google AI Studio
+Recommended model: gemini-1.5-flash (cheaper, faster for extraction tasks)
+Free tier: 15 requests per minute, 1500 requests per day
+Document the rate limits
+
+
+MongoDB Atlas (free tier)
+
+Sign up at mongodb.com/cloud/atlas
+Create a free M0 cluster
+Create a database user with read/write permissions
+Get connection string
+Whitelist your IP address (or use 0.0.0.0/0 for development)
+
+
+
+1.2 Development Environment Setup
+Create a project directory structure:
+nexus/
+├── config/
+│   ├── .env.example
+│   └── .env
+├── src/
+│   ├── module1_ingestion/
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   ├── db_handler.py
+│   │   ├── news_api_client.py
+│   │   ├── ingestion_service.py
+│   │   └── main.py
+│   ├── module2_search/
+│   │   ├── __init__.py
+│   │   ├── preprocessor.py
+│   │   ├── indexer.py
+│   │   ├── bm25_scorer.py
+│   │   ├── search_engine.py
+│   │   └── build_index.py
+│   ├── module3_extraction/
+│   │   ├── __init__.py
+│   │   ├── llm_client.py
+│   │   ├── prompt_manager.py
+│   │   ├── output_parser.py
+│   │   ├── cache.py
+│   │   ├── extraction_service.py
+│   │   └── main.py
+│   ├── module4_graph/
+│   │   ├── __init__.py
+│   │   ├── graph_manager.py
+│   │   ├── graph_builder.py
+│   │   ├── graph_analytics.py
+│   │   └── main.py
+│   ├── module5_api/
+│   │   ├── __init__.py
+│   │   ├── models.py
+│   │   └── app.py
+│   └── utils/
+│       ├── __init__.py
+│       └── logger.py
+├── frontend/
+│   ├── app.py (main Streamlit app)
+│   ├── pages/
+│   │   ├── 1_📰_News_Search.py
+│   │   ├── 2_🕸️_Knowledge_Graph.py
+│   │   ├── 3_📊_Analytics.py
+│   │   └── 4_📈_Trends.py
+│   └── components/
+│       ├── __init__.py
+│       └── graph_visualizer.py
+├── data/
+│   ├── cache/
+│   ├── index/
+│   └── exports/
+├── docs/
+├── requirements.txt
+├── README.md
+└── .gitignore
+1.3 Technology Stack & Rationale
+Core Technologies:
+
+Python 3.12 - Latest stable version
+MongoDB - Document store for articles (flexible schema, good for text)
+NetworkX - For in-memory graph operations and analytics
+Streamlit - Frontend framework (rapid development, Python-native)
+Google Gemini API - LLM for entity extraction
+NLTK - Text preprocessing
+
+For Graph Visualization - CRITICAL DECISION:
+I recommend PyVis over other options. Here's why:
+Option 1: PyVis (RECOMMENDED)
+
+Built specifically for NetworkX integration
+Creates interactive HTML visualizations
+Easy physics simulation for graph layout
+Click/hover interactions built-in
+Integrates seamlessly with Streamlit using components.html()
+Can handle 100-1000 nodes comfortably
+Very simple API
+
+Option 2: Plotly (Alternative)
+
+More customizable
+Better for very large graphs (1000+ nodes)
+More complex API
+Good Streamlit integration
+
+Option 3: Cytoscape.js via Streamlit-Agraph
+
+Most powerful for complex layouts
+Steeper learning curve
+Better for production-scale applications
+
+My Recommendation: Start with PyVis, migrate to Plotly if you need more scale.
+
+NetworkX is simpler for this project size
+No need for separate database server
+All Python, easier to learn
+Graph analytics (PageRank, community detection) are built-in
+Can serialize to disk easily
+For production scale, you can migrate to Neo4j later
+
+1.4 Environment Configuration
+Create a requirements.txt:
+python-dotenv==1.0.0
+pymongo==4.6.1
+requests==2.31.0
+nltk==3.8.1
+networkx==3.2.1
+google-generativeai==0.3.2
+streamlit==1.29.0
+pyvis==0.3.2
+pandas==2.1.4
+plotly==5.18.0
+fastapi==0.109.0
+uvicorn==0.27.0
+pydantic==2.5.3
+Create a .env file (never commit this):
+NEWS_API_KEY=your_newsapi_key_here
+GEMINI_API_KEY=your_gemini_key_here
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/
+MONGODB_DB_NAME=nexus_db
+MONGODB_COLLECTION_NAME=articles
+
+2. DEVELOPMENT ROADMAP
+Follow this sequence strictly. Complete each module fully before moving to the next.
+
+Day 1-2: Module 1 - Data Ingestion (get articles into MongoDB)
+Day 3-4: Module 2 - Search Engine (build index, implement BM25)
+Day 5-7: Module 3 - Information Extraction (LLM integration, prompt design)
+
+
+Day 8-10: Module 4 - Graph Construction (NetworkX, analytics)
+Day 11-12: Module 5 - API Layer (FastAPI endpoints)
+Day 13-14: Buffer for debugging and refinement
+
+
+Day 15-17: Streamlit Frontend (all pages)
+Day 18-19: Graph Visualization (PyVis integration)
+Day 20-21: Polish, documentation, demo preparation

@@ -1,0 +1,14 @@
+python-dotenv==1.0.0
+pymongo==4.6.1
+requests==2.31.0
+nltk==3.8.1
+networkx==3.2.1
+google-generativeai==0.3.2
+streamlit==1.29.0
+pyvis==0.3.2
+pandas==2.1.4
+plotly==5.18.0
+fastapi==0.109.0
+uvicorn==0.27.0
+pydantic==2.5.3
+
