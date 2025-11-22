@@ -1,0 +1,1247 @@
+[
+  {
+    "article_id": "51ad5d441d81fd21219a674a4ef63e96",
+    "publication_date": "2025-11-20T10:29:00+00:00",
+    "relationships": [
+      {
+        "relationship": "supplies_to",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Napier AI",
+        "entity2": "Brighter Super"
+      }
+    ]
+  },
+  {
+    "article_id": "00c2f454eb352f2049371e8ce89f7780",
+    "publication_date": "2025-11-20T10:06:00+00:00",
+    "relationships": [
+      {
+        "relationship": "acquires",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Adobe",
+        "entity2": "Semrush"
+      }
+    ]
+  },
+  {
+    "article_id": "4029636efcd5c29fef49a31f59842197",
+    "publication_date": "2025-11-20T07:00:00+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "1f1606cbb1c893c334e3b3f99636ef83",
+    "publication_date": "2025-11-20T07:00:00+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "5f0b1f366bff6d1a411ef656323a7dad",
+    "publication_date": "2025-11-20T06:31:35+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "50f6feaea283c031f6625a8cce7ab181",
+    "publication_date": "2025-11-20T06:00:00+00:00",
+    "relationships": [
+      {
+        "relationship": "announces",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Novartis",
+        "entity2": "30+ potential high-value pipeline assets"
+      }
+    ]
+  },
+  {
+    "article_id": "38f43807257fc0c704c34191d195e0a4",
+    "publication_date": "2025-11-19T23:34:00+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "e8d40b653f44467cb94b2d0cbab09bd0",
+    "publication_date": "2025-11-19T22:44:00+00:00",
+    "relationships": [
+      {
+        "relationship": "announces",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Profusa",
+        "entity2": "Third Quarter Business and Financial Highlights"
+      }
+    ]
+  },
+  {
+    "article_id": "8ca708fb21104bda057464f77668bce7",
+    "publication_date": "2025-11-19T22:38:00+00:00",
+    "relationships": [
+      {
+        "relationship": "announces",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Apollomics Inc.",
+        "entity2": "settlement agreement"
+      }
+    ]
+  },
+  {
+    "article_id": "e7a67f3431f234f5ad3d18b614599baf",
+    "publication_date": "2025-11-19T21:03:32+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "98a80b6156ecbde0fb7eeb1c749bca87",
+    "publication_date": "2025-11-19T20:47:32+00:00",
+    "relationships": [
+      {
+        "relationship": "invests_in",
+        "entity1_type": "Product",
+        "entity2_type": "Company",
+        "entity1": "RXRs credit platform",
+        "entity2": "Taft Family Ventures"
+      },
+      {
+        "relationship": "receives_investment_from",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Taft Family Ventures",
+        "entity2": "RXRs credit platform"
+      },
+      {
+        "relationship": "invests_in",
+        "entity1_type": "Product",
+        "entity2_type": "Product",
+        "entity1": "RXRs credit platform",
+        "entity2": "multifamily development"
+      }
+    ]
+  },
+  {
+    "article_id": "cf9e9d6d0f974f918cecdc4a083137a7",
+    "publication_date": "2025-11-19T19:33:18+00:00",
+    "relationships": [
+      {
+        "relationship": "owns",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "PodcastOne",
+        "entity2": "The Adam Carolla Show"
+      },
+      {
+        "relationship": "invests_in",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Galloway Capital Partners",
+        "entity2": "PodcastOne"
+      }
+    ]
+  },
+  {
+    "article_id": "a4da0701efcd6bb25eb1a177c58f5a5a",
+    "publication_date": "2025-11-19T19:30:00+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "f5eecd2de5a9d03812ecb0616d86db6c",
+    "publication_date": "2025-11-19T18:27:36+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "5cb416928f238d89455c74e701eb73e6",
+    "publication_date": "2025-11-19T17:07:00+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "f24534df212eebeb3f4209ed193b56b5",
+    "publication_date": "2025-11-19T15:13:37+00:00",
+    "relationships": [
+      {
+        "relationship": "employs",
+        "entity1_type": "Company",
+        "entity2_type": "Person",
+        "entity1": "company",
+        "entity2": "top executives"
+      }
+    ]
+  },
+  {
+    "article_id": "e2bf7609e0c01122927b7e7c7f10572d",
+    "publication_date": "2025-11-19T15:10:55+00:00",
+    "relationships": [
+      {
+        "relationship": "merges_with",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Blockfusion",
+        "entity2": "Blue Acquisition Corp"
+      }
+    ]
+  },
+  {
+    "article_id": "7a68b89f27f73c65ad40ebae2ccbdcf5",
+    "publication_date": "2025-11-19T14:54:32+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "21202e7ba21f48b01f85e27dc736c646",
+    "publication_date": "2025-11-19T14:52:00+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "9a7a8b4605c917b1563148831155ba46",
+    "publication_date": "2025-11-19T14:39:34+00:00",
+    "relationships": [
+      {
+        "relationship": "acquires",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Adobe",
+        "entity2": "Semrush"
+      }
+    ]
+  },
+  {
+    "article_id": "113b7744e79c9d0aeec9be32d50921fa",
+    "publication_date": "2025-11-19T14:30:06+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "0bf43145dde51c41eb296986debe36e6",
+    "publication_date": "2025-11-19T14:07:14+00:00",
+    "relationships": [
+      {
+        "relationship": "owns",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Pro Sportority (Israel) Ltd.",
+        "entity2": "Minute Media"
+      }
+    ]
+  },
+  {
+    "article_id": "304c5493dc9c35d485bb415df76e622a",
+    "publication_date": "2025-11-19T12:00:00+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "449dabdcb45d73c92636b6b1d918c0a6",
+    "publication_date": "2025-11-19T11:22:36+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "ed2e56ddf276d878423ab7f20219a47d",
+    "publication_date": "2025-11-19T11:01:00+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "9f5ab16527f1dbc9395b93fe510d96a4",
+    "publication_date": "2025-11-19T11:00:00+00:00",
+    "relationships": [
+      {
+        "relationship": "supplies_to",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Kimberly-Clark",
+        "entity2": "Consumer products"
+      },
+      {
+        "relationship": "works_for",
+        "entity1_type": "Person",
+        "entity2_type": "Company",
+        "entity1": "Scott Olson",
+        "entity2": "Getty Images"
+      }
+    ]
+  },
+  {
+    "article_id": "6e4cdd0e97a990725bc01fcc1123835c",
+    "publication_date": "2025-11-19T10:37:03+00:00",
+    "relationships": [
+      {
+        "relationship": "merges_with",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Monte dei Paschi di Siena (MPS)",
+        "entity2": "Banco BPM"
+      },
+      {
+        "relationship": "owns",
+        "entity1_type": "Organization",
+        "entity2_type": "Company",
+        "entity1": "Italy",
+        "entity2": "MPS"
+      }
+    ]
+  },
+  {
+    "article_id": "f3e4ae511cb7140d76d53fd72ae9a7b8",
+    "publication_date": "2025-11-19T10:30:18+00:00",
+    "relationships": [
+      {
+        "relationship": "announces",
+        "entity1_type": "Organization",
+        "entity2_type": "Product",
+        "entity1": "Reserve Bank of Indias (RBI)",
+        "entity2": "draft framework for bank-led acquisition finance"
+      }
+    ]
+  },
+  {
+    "article_id": "11fba633a81cb47cfbf84330d59b2095",
+    "publication_date": "2025-11-19T09:40:00+00:00",
+    "relationships": [
+      {
+        "relationship": "owns",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "ResearchAndMarkets.com",
+        "entity2": "United Kingdom Luxury Car Market, By Region, By Competition, Opportunities &amp; Forecast, 2020-2030F\" report"
+      }
+    ]
+  },
+  {
+    "article_id": "f6fc06b953775442c9e06e0f9f3a347f",
+    "publication_date": "2025-11-19T06:00:00+00:00",
+    "relationships": [
+      {
+        "relationship": "employs",
+        "entity1_type": "Company",
+        "entity2_type": "Person",
+        "entity1": "rhode",
+        "entity2": "Nick Vlahos"
+      },
+      {
+        "relationship": "employs",
+        "entity1_type": "Company",
+        "entity2_type": "Person",
+        "entity1": "e.l.f. Beauty",
+        "entity2": "Tarang Amin"
+      }
+    ]
+  },
+  {
+    "article_id": "08235ff5b2d7d7cbc424de6b76e556ef",
+    "publication_date": "2025-11-18T23:36:34+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "a7bd56ac4f6335529fcbd998f3be610b",
+    "publication_date": "2025-11-18T23:36:34+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "782191fa1187ab02461aeaca9277340b",
+    "publication_date": "2025-11-18T22:30:00+00:00",
+    "relationships": [
+      {
+        "relationship": "works_for",
+        "entity1_type": "Person",
+        "entity2_type": "Company",
+        "entity1": "Juan Monteverde",
+        "entity2": "Monteverde &amp; Associates PC"
+      },
+      {
+        "relationship": "announces",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Monteverde &amp; Associates PC",
+        "entity2": "An Investigation of Wintergreen Acquisition Corp."
+      }
+    ]
+  },
+  {
+    "article_id": "737088ca69a9d499f67a6cb0c76afd62",
+    "publication_date": "2025-11-18T22:19:35+00:00",
+    "relationships": [
+      {
+        "relationship": "sues",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Fubo",
+        "entity2": "Disney"
+      },
+      {
+        "relationship": "sues",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Fubo",
+        "entity2": "Fox"
+      },
+      {
+        "relationship": "sues",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Fubo",
+        "entity2": "WBD"
+      }
+    ]
+  },
+  {
+    "article_id": "53cc38a176fa89719ca175f4b8aede70",
+    "publication_date": "2025-11-18T21:30:00+00:00",
+    "relationships": [
+      {
+        "relationship": "announces",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "StoneBridge Acquisition II Corporation",
+        "entity2": "Separate Trading of its Class A Ordinary Shares and Rights"
+      }
+    ]
+  },
+  {
+    "article_id": "7e9d029a8094f61b179bd6dcdad8401d",
+    "publication_date": "2025-11-18T21:05:00+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "dda20c4f05753761ba961bf3d6913827",
+    "publication_date": "2025-11-18T21:00:00+00:00",
+    "relationships": [
+      {
+        "relationship": "works_for",
+        "entity1_type": "Person",
+        "entity2_type": "Company",
+        "entity1": "Juan Monteverde",
+        "entity2": "Monteverde &amp; Associates PC"
+      }
+    ]
+  },
+  {
+    "article_id": "bfa9f093ac7e7dd1db800f8fe1af200b",
+    "publication_date": "2025-11-18T18:01:30+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "0b2f364bd73f03e687e7a9b97bd53024",
+    "publication_date": "2025-11-18T16:49:18+00:00",
+    "relationships": [
+      {
+        "relationship": "employs",
+        "entity1_type": "Company",
+        "entity2_type": "Person",
+        "entity1": "Semler Scientific",
+        "entity2": "Douglas Murphy Chutorian"
+      }
+    ]
+  },
+  {
+    "article_id": "a4bbc7704853a30b688a0852cbaaf45e",
+    "publication_date": "2025-11-18T16:25:57+00:00",
+    "relationships": [
+      {
+        "relationship": "owns",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Sphere Media",
+        "entity2": "Wayward"
+      },
+      {
+        "relationship": "owns",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Netflix",
+        "entity2": "Wayward"
+      },
+      {
+        "relationship": "merges_with",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Sphere Media",
+        "entity2": "Zone 3"
+      }
+    ]
+  },
+  {
+    "article_id": "69251be2d804633d74b12c8265656cd5",
+    "publication_date": "2025-11-18T16:00:00+00:00",
+    "relationships": [
+      {
+        "relationship": "owns",
+        "entity1_type": "Person",
+        "entity2_type": "Company",
+        "entity1": "Michael Nyman",
+        "entity2": "Acceleration Community of Companies"
+      },
+      {
+        "relationship": "launches",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Acceleration Community of Companies",
+        "entity2": "PMK Entertainment"
+      }
+    ]
+  },
+  {
+    "article_id": "944b537207fb43572d4909e9fe4acfba",
+    "publication_date": "2025-11-18T15:08:06+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "34d8734fd1c2cc898572f3210f544e70",
+    "publication_date": "2025-11-18T13:30:00+00:00",
+    "relationships": [
+      {
+        "relationship": "works_for",
+        "entity1_type": "Person",
+        "entity2_type": "Organization",
+        "entity1": "Brendan Carr",
+        "entity2": "FCC"
+      }
+    ]
+  },
+  {
+    "article_id": "2501fd81a96462b93ac2f560ddc39f89",
+    "publication_date": "2025-11-18T13:15:00+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "65e348ea39dca68b2baa94f3db761e42",
+    "publication_date": "2025-11-18T13:05:00+00:00",
+    "relationships": [
+      {
+        "relationship": "announces",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Magic Software",
+        "entity2": "Third quarter 2025 Financial Results"
+      }
+    ]
+  },
+  {
+    "article_id": "8aac2c80d99c7daa1dfeda6b258c4362",
+    "publication_date": "2025-11-18T12:10:00+00:00",
+    "relationships": [
+      {
+        "relationship": "announces",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Amundi",
+        "entity2": "new 2025-2028 strategic plan"
+      }
+    ]
+  },
+  {
+    "article_id": "2aeb1fad304f3c7d7aec1d8a13536830",
+    "publication_date": "2025-11-18T12:00:01+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "cd213394ac36a1451cccbc8648626098",
+    "publication_date": "2025-11-18T11:40:41+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "4d41c1bbb5e6950b5172f95102917a51",
+    "publication_date": "2025-11-18T11:00:00+00:00",
+    "relationships": [
+      {
+        "relationship": "acquires",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Synopsys, Inc.",
+        "entity2": "Ansys, Inc."
+      }
+    ]
+  },
+  {
+    "article_id": "83e1b10404620164d700c498a8f85266",
+    "publication_date": "2025-11-18T09:45:58+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "51a10d382a9d5b536f459afe4de01675",
+    "publication_date": "2025-11-18T06:00:00+00:00",
+    "relationships": [
+      {
+        "relationship": "announces",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Amundi",
+        "entity2": "new 2025-2028 strategic plan"
+      }
+    ]
+  },
+  {
+    "article_id": "7348465b8ea6f747a2685cb01ad0c184",
+    "publication_date": "2025-11-18T06:00:00+00:00",
+    "relationships": [
+      {
+        "relationship": "merges_with",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "AkzoNobel",
+        "entity2": "Axalta"
+      }
+    ]
+  },
+  {
+    "article_id": "1257baed3e6c748e61ea134197dc9cee",
+    "publication_date": "2025-11-18T05:17:00+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "249f30187442a26e1721427b81e33359",
+    "publication_date": "2025-11-18T02:20:00+00:00",
+    "relationships": [
+      {
+        "relationship": "sues",
+        "entity1_type": "Organization",
+        "entity2_type": "Company",
+        "entity1": "Rosen Law Firm",
+        "entity2": "Cepton, Inc."
+      }
+    ]
+  },
+  {
+    "article_id": "bc5f2f7ab6c5992501ff7882628d9fcc",
+    "publication_date": "2025-11-17T22:29:57+00:00",
+    "relationships": [
+      {
+        "relationship": "acquires",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Starz",
+        "entity2": "A+E Global Media"
+      },
+      {
+        "relationship": "owns",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "A+E Global Media",
+        "entity2": "Lifetime"
+      },
+      {
+        "relationship": "owns",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "A+E Global Media",
+        "entity2": "The History channel"
+      }
+    ]
+  },
+  {
+    "article_id": "86aebd6066d17a1b141bccc69d5a07f0",
+    "publication_date": "2025-11-17T21:43:22+00:00",
+    "relationships": [
+      {
+        "relationship": "merges_with",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "KindlyMD",
+        "entity2": "Nakamoto"
+      }
+    ]
+  },
+  {
+    "article_id": "668060fd8f78f347791dc7fb64a2521d",
+    "publication_date": "2025-11-17T21:23:01+00:00",
+    "relationships": [
+      {
+        "relationship": "owns",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Sinclair",
+        "entity2": "E.W. Scripps"
+      }
+    ]
+  },
+  {
+    "article_id": "764573aa00b985cec2bd3290d9fba327",
+    "publication_date": "2025-11-17T21:17:43+00:00",
+    "relationships": [
+      {
+        "relationship": "owns",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Sinclair",
+        "entity2": "E.W. Scripps"
+      }
+    ]
+  },
+  {
+    "article_id": "23ac7ccc548b54d6b15135e637ee9b7c",
+    "publication_date": "2025-11-17T20:53:02+00:00",
+    "relationships": [
+      {
+        "relationship": "acquired_by",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Comerica Inc.",
+        "entity2": "Fifth Third Bancorp"
+      },
+      {
+        "relationship": "acquires",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Fifth Third Bancorp",
+        "entity2": "Comerica Inc."
+      }
+    ]
+  },
+  {
+    "article_id": "5674762cc6eccf2c0e59ad6077915fc3",
+    "publication_date": "2025-11-17T20:06:23+00:00",
+    "relationships": [
+      {
+        "relationship": "employs",
+        "entity1_type": "Organization",
+        "entity2_type": "Person",
+        "entity1": "St. Petersburg city development",
+        "entity2": "James Corbett"
+      }
+    ]
+  },
+  {
+    "article_id": "ab7f08a36eecbbada25334f58556a53b",
+    "publication_date": "2025-11-17T18:18:42+00:00",
+    "relationships": [
+      {
+        "relationship": "merges_with",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Kindly MD (NAKA)",
+        "entity2": "Nakamoto Holdings"
+      }
+    ]
+  },
+  {
+    "article_id": "ffe3b3493ca608747826d6ad6b8258a4",
+    "publication_date": "2025-11-17T16:46:46+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "326fe8741462f1218eabc38ce97b42c4",
+    "publication_date": "2025-11-17T16:32:18+00:00",
+    "relationships": [
+      {
+        "relationship": "owns",
+        "entity1_type": "Person",
+        "entity2_type": "Product",
+        "entity1": "Donald Trump",
+        "entity2": "Truth Social"
+      },
+      {
+        "relationship": "owns",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Trump Media and Technology Group (TMTG)",
+        "entity2": "Truth Social"
+      }
+    ]
+  },
+  {
+    "article_id": "b5b3e264f43fe5896f37112907aa2317",
+    "publication_date": "2025-11-17T16:00:25+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "1a446504eb6a0432f8d6033faf1245a7",
+    "publication_date": "2025-11-17T15:59:40+00:00",
+    "relationships": [
+      {
+        "relationship": "employs",
+        "entity1_type": "Company",
+        "entity2_type": "Person",
+        "entity1": "Havas",
+        "entity2": "Yannick Bolloré"
+      }
+    ]
+  },
+  {
+    "article_id": "d1ec4165dc417e2e800a14df148e9cf1",
+    "publication_date": "2025-11-17T13:30:00+00:00",
+    "relationships": [
+      {
+        "relationship": "announces",
+        "entity1_type": "Company",
+        "entity2_type": "Person",
+        "entity1": "Chart Industries",
+        "entity2": "Jill Evanko"
+      },
+      {
+        "relationship": "employs",
+        "entity1_type": "Company",
+        "entity2_type": "Person",
+        "entity1": "Chart Industries",
+        "entity2": "Jill Evanko"
+      }
+    ]
+  },
+  {
+    "article_id": "bcc15493d173daa455d07a4a886c5c5d",
+    "publication_date": "2025-11-17T12:00:38+00:00",
+    "relationships": [
+      {
+        "relationship": "works_for",
+        "entity1_type": "Person",
+        "entity2_type": "Company",
+        "entity1": "Tom Freston",
+        "entity2": "MTV"
+      }
+    ]
+  },
+  {
+    "article_id": "49c58f630d2c0a9004d9837d8576372d",
+    "publication_date": "2025-11-17T12:00:00+00:00",
+    "relationships": [
+      {
+        "relationship": "employs",
+        "entity1_type": "Organization",
+        "entity2_type": "Person",
+        "entity1": "FCC",
+        "entity2": "Brendan Carr"
+      }
+    ]
+  },
+  {
+    "article_id": "926507a50b93627e640aba588b56179d",
+    "publication_date": "2025-11-17T11:54:26+00:00",
+    "relationships": [
+      {
+        "relationship": "employs",
+        "entity1_type": "Company",
+        "entity2_type": "Person",
+        "entity1": "DDB Worldwide",
+        "entity2": "Alex Lubar"
+      },
+      {
+        "relationship": "acquires",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Omnicom",
+        "entity2": "Interpublic Group"
+      }
+    ]
+  },
+  {
+    "article_id": "ac2c704c7d2af8d2b5dbe65699ed9f90",
+    "publication_date": "2025-11-17T11:48:27+00:00",
+    "relationships": [
+      {
+        "relationship": "sues",
+        "entity1_type": "Person",
+        "entity2_type": "Product",
+        "entity1": "families",
+        "entity2": "Tylenol"
+      }
+    ]
+  },
+  {
+    "article_id": "748ce1c45c94d07bacfa24ff43f0cdb8",
+    "publication_date": "2025-11-17T10:40:00+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "3a57667927867a9ea6527fb71753877c",
+    "publication_date": "2025-11-17T09:02:00+00:00",
+    "relationships": [
+      {
+        "relationship": "announces",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "MetaOptics Ltd",
+        "entity2": "dual listing"
+      }
+    ]
+  },
+  {
+    "article_id": "6531b09e9dfa3c20291c4d6b9a7ddb31",
+    "publication_date": "2025-11-17T07:39:54+00:00",
+    "relationships": [
+      {
+        "relationship": "sues",
+        "entity1_type": "Company",
+        "entity2_type": "Person",
+        "entity1": "JPMorgan Chase",
+        "entity2": "Charlie Javice"
+      }
+    ]
+  },
+  {
+    "article_id": "10ac18564edb13bc945982c543fa9a01",
+    "publication_date": "2025-11-17T03:42:25+00:00",
+    "relationships": [
+      {
+        "relationship": "acquires",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Samsung",
+        "entity2": "other firms"
+      }
+    ]
+  },
+  {
+    "article_id": "a265f3aa8674553fd86be35188f483de",
+    "publication_date": "2025-11-17T01:42:37+00:00",
+    "relationships": [
+      {
+        "relationship": "regulates",
+        "entity1_type": "Organization",
+        "entity2_type": "Company",
+        "entity1": "US FDA",
+        "entity2": "Divi's Labs"
+      }
+    ]
+  },
+  {
+    "article_id": "6f4ed67bb09473794cfbfc94143501e3",
+    "publication_date": "2025-11-17T00:58:34+00:00",
+    "relationships": [
+      {
+        "relationship": "owns",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "BlackRock",
+        "entity2": "BUIDL"
+      },
+      {
+        "relationship": "partners_with",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Binance",
+        "entity2": "BUIDL"
+      }
+    ]
+  },
+  {
+    "article_id": "a87189368b6626b95a61888bc929c852",
+    "publication_date": "2025-11-16T17:07:45+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "c4312e5f049b02d68c19992026c88626",
+    "publication_date": "2025-11-16T16:16:20+00:00",
+    "relationships": [
+      {
+        "relationship": "merges_with",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Cidara",
+        "entity2": "Merck"
+      }
+    ]
+  },
+  {
+    "article_id": "c73a354d17178aed00d4baf0b2392fd3",
+    "publication_date": "2025-11-16T15:26:04+00:00",
+    "relationships": [
+      {
+        "relationship": "owns",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "DC Comics",
+        "entity2": "Batman/Superman World's Finest #45"
+      },
+      {
+        "relationship": "partners_with",
+        "entity1_type": "Person",
+        "entity2_type": "Person",
+        "entity1": "Lex",
+        "entity2": "Joker"
+      }
+    ]
+  },
+  {
+    "article_id": "e655bc3dd64e90200b4453523164e93b",
+    "publication_date": "2025-11-15T12:07:56+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "24060949ea606d07b278ff66abe0d283",
+    "publication_date": "2025-11-15T06:54:59+00:00",
+    "relationships": [
+      {
+        "relationship": "competes_with",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Havas",
+        "entity2": "WPP"
+      }
+    ]
+  },
+  {
+    "article_id": "f744260a4dc11537323b64e1099f156d",
+    "publication_date": "2025-11-15T01:32:44+00:00",
+    "relationships": [
+      {
+        "relationship": "employs",
+        "entity1_type": "Company",
+        "entity2_type": "Person",
+        "entity1": "Union Pacific",
+        "entity2": "Jim Vena"
+      },
+      {
+        "relationship": "competes_with",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Union Pacific",
+        "entity2": "BNSF Railway"
+      },
+      {
+        "relationship": "acquires",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Union Pacific",
+        "entity2": "Norfolk Sout"
+      }
+    ]
+  },
+  {
+    "article_id": "343d09b420c578327c7742e1acb8e2e9",
+    "publication_date": "2025-11-15T01:15:45+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "394267c9e73d298c048ddb714aff92e1",
+    "publication_date": "2025-11-14T23:43:21+00:00",
+    "relationships": [
+      {
+        "relationship": "employs",
+        "entity1_type": "Company",
+        "entity2_type": "Person",
+        "entity1": "Verizon",
+        "entity2": "Verizon CEO"
+      },
+      {
+        "relationship": "employs",
+        "entity1_type": "Company",
+        "entity2_type": "Person",
+        "entity1": "Verizon",
+        "entity2": "15,000 jobs"
+      }
+    ]
+  },
+  {
+    "article_id": "7585170b057eeb3d089248a396f7a4c5",
+    "publication_date": "2025-11-14T22:26:00+00:00",
+    "relationships": [
+      {
+        "relationship": "announces",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Dynamix Corporation III",
+        "entity2": "separate trading of its Class A ordinary shares and Warrants"
+      }
+    ]
+  },
+  {
+    "article_id": "07f389e31b2dc341df9c847c1b95a896",
+    "publication_date": "2025-11-14T22:25:00+00:00",
+    "relationships": [
+      {
+        "relationship": "owns",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Viking Acquisition Corp. I",
+        "entity2": "Class A Ordinary Shares"
+      },
+      {
+        "relationship": "owns",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Viking Acquisition Corp. I",
+        "entity2": "Warrants"
+      }
+    ]
+  },
+  {
+    "article_id": "68aab6153b8bea592926d3487cc23174",
+    "publication_date": "2025-11-14T21:31:00+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "7556419adf762d335f7ed717d2500160",
+    "publication_date": "2025-11-14T21:10:00+00:00",
+    "relationships": [
+      {
+        "relationship": "announces",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Insight Digital Partners II",
+        "entity2": "Separate Trading of its Class A Ordinary Shares and Warrants"
+      },
+      {
+        "relationship": "announces",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Insight Digital Partners II",
+        "entity2": "initial public offering"
+      }
+    ]
+  },
+  {
+    "article_id": "6d2adeae4dc5e531d9bb94b10cbf7a75",
+    "publication_date": "2025-11-14T21:05:00+00:00",
+    "relationships": [
+      {
+        "relationship": "announces",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Strive, Inc.",
+        "entity2": "Third Quarter 2025 Financial Results"
+      }
+    ]
+  },
+  {
+    "article_id": "b9cdfbc16eef2a58ac9f2aa53b87e5dd",
+    "publication_date": "2025-11-14T20:31:00+00:00",
+    "relationships": [
+      {
+        "relationship": "sues",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Rosen Law Firm",
+        "entity2": "Cepton, Inc."
+      }
+    ]
+  },
+  {
+    "article_id": "dd53c979fcee007eb1530cd2ab55d83e",
+    "publication_date": "2025-11-14T19:40:23+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "88c85b28a6742f38838a7ca298214238",
+    "publication_date": "2025-11-14T19:00:00+00:00",
+    "relationships": [
+      {
+        "relationship": "announces",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Alussa Energy Acquisition Corp. II",
+        "entity2": "initial public offering"
+      }
+    ]
+  },
+  {
+    "article_id": "ae0b2386496e7a583bd9c1850980ded4",
+    "publication_date": "2025-11-14T18:24:00+00:00",
+    "relationships": []
+  },
+  {
+    "article_id": "81325fb2da48c823bec0accf5f9dc494",
+    "publication_date": "2025-11-14T18:15:00+00:00",
+    "relationships": [
+      {
+        "relationship": "owns",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Paramount+",
+        "entity2": "Taylor Sheridan Shows"
+      },
+      {
+        "relationship": "employs",
+        "entity1_type": "Company",
+        "entity2_type": "Person",
+        "entity1": "Paramount",
+        "entity2": "Taylor Sheridan"
+      },
+      {
+        "relationship": "owns",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Parrot Analytics",
+        "entity2": "Streaming Economics data"
+      }
+    ]
+  },
+  {
+    "article_id": "f723eadf9eb67c0fc198d72bcf02a142",
+    "publication_date": "2025-11-14T15:59:14+00:00",
+    "relationships": [
+      {
+        "relationship": "merges_with",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Union Pacific",
+        "entity2": "Norfolk Southern"
+      },
+      {
+        "relationship": "launches",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Union Pacific",
+        "entity2": "transcontinental railroad"
+      },
+      {
+        "relationship": "launches",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Norfolk Southern",
+        "entity2": "transcontinental railroad"
+      }
+    ]
+  },
+  {
+    "article_id": "79d005e2cccb6ce566ba448aed4d0502",
+    "publication_date": "2025-11-14T15:45:08+00:00",
+    "relationships": [
+      {
+        "relationship": "merges_with",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Union Pacific",
+        "entity2": "Norfolk Southern"
+      },
+      {
+        "relationship": "launches",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Union Pacific",
+        "entity2": "first transcontinental railroad"
+      },
+      {
+        "relationship": "launches",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "Norfolk Southern",
+        "entity2": "first transcontinental railroad"
+      }
+    ]
+  },
+  {
+    "article_id": "94b6a119803fbda3e9f823683406eb03",
+    "publication_date": "2025-11-14T14:48:45+00:00",
+    "relationships": [
+      {
+        "relationship": "merges_with",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Union Pacific",
+        "entity2": "Norfolk Southern"
+      }
+    ]
+  },
+  {
+    "article_id": "bd396171564d833869773667233e51c4",
+    "publication_date": "2025-11-14T14:41:00+00:00",
+    "relationships": [
+      {
+        "relationship": "merges_with",
+        "entity1_type": "Company",
+        "entity2_type": "Company",
+        "entity1": "Union Pacific",
+        "entity2": "Norfolk Southern"
+      }
+    ]
+  },
+  {
+    "article_id": "4c5048c2cbe427018ebcc9f3dcf73bf2",
+    "publication_date": "2025-11-20T11:50:58+00:00",
+    "relationships": [
+      {
+        "relationship": "announces",
+        "entity1_type": "Company",
+        "entity2_type": "Product",
+        "entity1": "HSBC",
+        "entity2": "strategy note"
+      }
+    ]
+  },
+  {
+    "article_id": "73b301e019f511b4cadc235290f05c1b",
+    "publication_date": "2025-11-20T11:47:57+00:00",
+    "relationships": []
+  }
+]

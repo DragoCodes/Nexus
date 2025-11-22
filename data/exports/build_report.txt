@@ -1,0 +1,77 @@
+============================================================
+KNOWLEDGE GRAPH BUILD REPORT
+============================================================
+Build Date: 2025-11-22T12:51:59.470603
+Total Build Time: 0.38 seconds
+
+BUILD STATISTICS:
+  Articles Processed: 100
+  Relationships Found: 97
+  Unique Entities: 144
+  Unique Relationships: 89
+
+GRAPH STATISTICS:
+  Total Entities: 144
+  Total Relationships: 89
+
+ENTITIES BY TYPE:
+  Company: 84
+  Product: 32
+  Person: 22
+  Organization: 6
+
+RELATIONSHIPS BY TYPE:
+  owns: 18
+  announces: 16
+  employs: 13
+  merges_with: 8
+  acquires: 7
+  sues: 6
+  launches: 5
+  works_for: 4
+  invests_in: 3
+  competes_with: 2
+
+MOST CONNECTED ENTITIES (Top 10):
+  Union Pacific: 6 connections
+  RXRs credit platform: 3 connections
+  Fubo: 3 connections
+  A+E Global Media: 3 connections
+  Norfolk Southern: 3 connections
+  Taft Family Ventures: 2 connections
+  PodcastOne: 2 connections
+  Monteverde &amp; Associates PC: 2 connections
+  Sphere Media: 2 connections
+  Wayward: 2 connections
+
+NETWORK STATISTICS:
+  Nodes: 144
+  Edges: 88
+  Average Degree: 1.22
+  Density: 0.004274
+  Connected Components: 61
+  Average Clustering: 0.019444
+
+PAGERANK TOP 10:
+  Brendan Carr (Person): 0.028779
+  FCC (Organization): 0.028779
+  Comerica Inc. (Company): 0.028779
+  Fifth Third Bancorp (Company): 0.028779
+  RXRs credit platform (Product): 0.012545
+  Truth Social (Product): 0.011694
+  BUIDL (Product): 0.011694
+  The Adam Carolla Show (Product): 0.011142
+  An Investigation of Wintergreen Acquisition Corp. (Product): 0.011142
+  PMK Entertainment (Company): 0.011142
+
+COMMUNITIES DETECTED: 61
+  Community 0: Company Community (2 entities)
+  Community 1: Company Community (2 entities)
+  Community 2: Company Community (2 entities)
+  Community 3: Company Community (2 entities)
+  Community 4: Company Community (2 entities)
+
+VALIDATION:
+  Status: PASSED
+  Issues Found: 0
+============================================================

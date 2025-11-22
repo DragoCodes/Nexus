@@ -1,0 +1,18 @@
+{
+  "nodes": 144,
+  "edges": 88,
+  "average_degree": 1.22,
+  "density": 0.004274,
+  "connected_components": 61,
+  "average_clustering": 0.019444,
+  "diameter": null,
+  "explanations": {
+    "nodes": "Total number of entities",
+    "edges": "Total number of relationships",
+    "average_degree": "Average number of connections per entity",
+    "density": "Ratio of actual edges to possible edges (0-1)",
+    "connected_components": "Number of disconnected subgraphs",
+    "average_clustering": "Measure of how nodes cluster together (0-1)",
+    "diameter": "Longest shortest path in the graph (if connected)"
+  }
+}

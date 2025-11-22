@@ -1,0 +1,102 @@
+[
+  {
+    "entity_name": "Brendan Carr",
+    "score": 0.028779,
+    "entity_type": "Person"
+  },
+  {
+    "entity_name": "FCC",
+    "score": 0.028779,
+    "entity_type": "Organization"
+  },
+  {
+    "entity_name": "Comerica Inc.",
+    "score": 0.028779,
+    "entity_type": "Company"
+  },
+  {
+    "entity_name": "Fifth Third Bancorp",
+    "score": 0.028779,
+    "entity_type": "Company"
+  },
+  {
+    "entity_name": "RXRs credit platform",
+    "score": 0.012545,
+    "entity_type": "Product"
+  },
+  {
+    "entity_name": "Truth Social",
+    "score": 0.011694,
+    "entity_type": "Product"
+  },
+  {
+    "entity_name": "BUIDL",
+    "score": 0.011694,
+    "entity_type": "Product"
+  },
+  {
+    "entity_name": "The Adam Carolla Show",
+    "score": 0.011142,
+    "entity_type": "Product"
+  },
+  {
+    "entity_name": "An Investigation of Wintergreen Acquisition Corp.",
+    "score": 0.011142,
+    "entity_type": "Product"
+  },
+  {
+    "entity_name": "PMK Entertainment",
+    "score": 0.011142,
+    "entity_type": "Company"
+  },
+  {
+    "entity_name": "Wayward",
+    "score": 0.009853,
+    "entity_type": "Product"
+  },
+  {
+    "entity_name": "initial public offering",
+    "score": 0.009853,
+    "entity_type": "Product"
+  },
+  {
+    "entity_name": "Taft Family Ventures",
+    "score": 0.009663,
+    "entity_type": "Company"
+  },
+  {
+    "entity_name": "multifamily development",
+    "score": 0.009663,
+    "entity_type": "Product"
+  },
+  {
+    "entity_name": "Brighter Super",
+    "score": 0.008012,
+    "entity_type": "Company"
+  },
+  {
+    "entity_name": "Semrush",
+    "score": 0.008012,
+    "entity_type": "Company"
+  },
+  {
+    "entity_name": "30+ potential high-value pipeline assets",
+    "score": 0.008012,
+    "entity_type": "Product"
+  },
+  {
+    "entity_name": "Third Quarter Business and Financial Highlights",
+    "score": 0.008012,
+    "entity_type": "Product"
+  },
+  {
+    "entity_name": "settlement agreement",
+    "score": 0.008012,
+    "entity_type": "Product"
+  },
+  {
+    "entity_name": "PodcastOne",
+    "score": 0.008012,
+    "entity_type": "Company"
+  }
+]

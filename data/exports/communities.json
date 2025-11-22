@@ -1,0 +1,573 @@
+[
+  {
+    "community_id": 0,
+    "entities": [
+      "Brighter Super",
+      "Napier AI"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 1,
+    "entities": [
+      "Adobe",
+      "Semrush"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 2,
+    "entities": [
+      "30+ potential high-value pipeline assets",
+      "Novartis"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 3,
+    "entities": [
+      "Third Quarter Business and Financial Highlights",
+      "Profusa"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 4,
+    "entities": [
+      "settlement agreement",
+      "Apollomics Inc."
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 5,
+    "entities": [
+      "multifamily development",
+      "RXRs credit platform",
+      "Taft Family Ventures"
+    ],
+    "size": 3,
+    "description": "Product Community"
+  },
+  {
+    "community_id": 6,
+    "entities": [
+      "Galloway Capital Partners",
+      "PodcastOne",
+      "The Adam Carolla Show"
+    ],
+    "size": 3,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 7,
+    "entities": [
+      "top executives",
+      "company"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 8,
+    "entities": [
+      "Blue Acquisition Corp",
+      "Blockfusion"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 9,
+    "entities": [
+      "Pro Sportority (Israel) Ltd.",
+      "Minute Media"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 10,
+    "entities": [
+      "Consumer products",
+      "Kimberly-Clark"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 11,
+    "entities": [
+      "Scott Olson",
+      "Getty Images"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 12,
+    "entities": [
+      "Monte dei Paschi di Siena (MPS)",
+      "Banco BPM"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 13,
+    "entities": [
+      "Italy",
+      "MPS"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 14,
+    "entities": [
+      "draft framework for bank-led acquisition finance",
+      "Reserve Bank of Indias (RBI)"
+    ],
+    "size": 2,
+    "description": "Organization Community"
+  },
+  {
+    "community_id": 15,
+    "entities": [
+      "ResearchAndMarkets.com",
+      "United Kingdom Luxury Car Market, By Region, By Competition, Opportunities &amp; Forecast, 2020-2030F\" report"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 16,
+    "entities": [
+      "rhode",
+      "Nick Vlahos"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 17,
+    "entities": [
+      "Tarang Amin",
+      "e.l.f. Beauty"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 18,
+    "entities": [
+      "Juan Monteverde",
+      "An Investigation of Wintergreen Acquisition Corp.",
+      "Monteverde &amp; Associates PC"
+    ],
+    "size": 3,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 19,
+    "entities": [
+      "WBD",
+      "Fox",
+      "Fubo",
+      "Disney"
+    ],
+    "size": 4,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 20,
+    "entities": [
+      "Separate Trading of its Class A Ordinary Shares and Rights",
+      "StoneBridge Acquisition II Corporation"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 21,
+    "entities": [
+      "Semler Scientific",
+      "Douglas Murphy Chutorian"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 22,
+    "entities": [
+      "Sphere Media",
+      "Zone 3",
+      "Netflix",
+      "Wayward"
+    ],
+    "size": 4,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 23,
+    "entities": [
+      "PMK Entertainment",
+      "Acceleration Community of Companies",
+      "Michael Nyman"
+    ],
+    "size": 3,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 24,
+    "entities": [
+      "Brendan Carr",
+      "FCC"
+    ],
+    "size": 2,
+    "description": "Organization Community"
+  },
+  {
+    "community_id": 25,
+    "entities": [
+      "Magic Software",
+      "Third quarter 2025 Financial Results"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 26,
+    "entities": [
+      "Amundi",
+      "new 2025-2028 strategic plan"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 27,
+    "entities": [
+      "Ansys, Inc.",
+      "Synopsys, Inc."
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 28,
+    "entities": [
+      "AkzoNobel",
+      "Axalta"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 29,
+    "entities": [
+      "Rosen Law Firm",
+      "Cepton, Inc."
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 30,
+    "entities": [
+      "The History channel",
+      "Starz",
+      "A+E Global Media",
+      "Lifetime"
+    ],
+    "size": 4,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 31,
+    "entities": [
+      "KindlyMD",
+      "Nakamoto"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 32,
+    "entities": [
+      "E.W. Scripps",
+      "Sinclair"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 33,
+    "entities": [
+      "Comerica Inc.",
+      "Fifth Third Bancorp"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 34,
+    "entities": [
+      "James Corbett",
+      "St. Petersburg city development"
+    ],
+    "size": 2,
+    "description": "Organization Community"
+  },
+  {
+    "community_id": 35,
+    "entities": [
+      "Nakamoto Holdings",
+      "Kindly MD (NAKA)"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 36,
+    "entities": [
+      "Trump Media and Technology Group (TMTG)",
+      "Truth Social",
+      "Donald Trump"
+    ],
+    "size": 3,
+    "description": "Person Community"
+  },
+  {
+    "community_id": 37,
+    "entities": [
+      "WPP",
+      "Havas",
+      "Yannick Bolloré"
+    ],
+    "size": 3,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 38,
+    "entities": [
+      "Chart Industries",
+      "Jill Evanko"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 39,
+    "entities": [
+      "Tom Freston",
+      "MTV"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 40,
+    "entities": [
+      "Alex Lubar",
+      "DDB Worldwide"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 41,
+    "entities": [
+      "Interpublic Group",
+      "Omnicom"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 42,
+    "entities": [
+      "Tylenol",
+      "families"
+    ],
+    "size": 2,
+    "description": "Person Community"
+  },
+  {
+    "community_id": 43,
+    "entities": [
+      "MetaOptics Ltd",
+      "dual listing"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 44,
+    "entities": [
+      "JPMorgan Chase",
+      "Charlie Javice"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 45,
+    "entities": [
+      "Samsung",
+      "other firms"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 46,
+    "entities": [
+      "Divi's Labs",
+      "US FDA"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 47,
+    "entities": [
+      "Binance",
+      "BUIDL",
+      "BlackRock"
+    ],
+    "size": 3,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 48,
+    "entities": [
+      "Cidara",
+      "Merck"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 49,
+    "entities": [
+      "DC Comics",
+      "Batman/Superman World's Finest #45"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 50,
+    "entities": [
+      "Lex",
+      "Joker"
+    ],
+    "size": 2,
+    "description": "Person Community"
+  },
+  {
+    "community_id": 51,
+    "entities": [
+      "Verizon",
+      "15,000 jobs",
+      "Verizon CEO"
+    ],
+    "size": 3,
+    "description": "Person Community"
+  },
+  {
+    "community_id": 52,
+    "entities": [
+      "Dynamix Corporation III",
+      "separate trading of its Class A ordinary shares and Warrants"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 53,
+    "entities": [
+      "Viking Acquisition Corp. I",
+      "Warrants",
+      "Class A Ordinary Shares"
+    ],
+    "size": 3,
+    "description": "Product Community"
+  },
+  {
+    "community_id": 54,
+    "entities": [
+      "Insight Digital Partners II",
+      "Separate Trading of its Class A Ordinary Shares and Warrants",
+      "initial public offering",
+      "Alussa Energy Acquisition Corp. II"
+    ],
+    "size": 4,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 55,
+    "entities": [
+      "Third Quarter 2025 Financial Results",
+      "Strive, Inc."
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 56,
+    "entities": [
+      "Taylor Sheridan Shows",
+      "Paramount+"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 57,
+    "entities": [
+      "Taylor Sheridan",
+      "Paramount"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 58,
+    "entities": [
+      "Streaming Economics data",
+      "Parrot Analytics"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 59,
+    "entities": [
+      "transcontinental railroad",
+      "Norfolk Southern",
+      "Jim Vena",
+      "first transcontinental railroad",
+      "Union Pacific",
+      "Norfolk Sout",
+      "BNSF Railway"
+    ],
+    "size": 7,
+    "description": "Company Community"
+  },
+  {
+    "community_id": 60,
+    "entities": [
+      "HSBC",
+      "strategy note"
+    ],
+    "size": 2,
+    "description": "Company Community"
+  }
+]
