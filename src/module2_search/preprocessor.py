@@ -185,4 +185,16 @@ class TextPreprocessor:
         except Exception as e:
             print(f"Error during preprocessing: {e}")
             return []
+    
+    def preprocess_query(self, query):
+        """
+        Preprocess a search query (same as preprocess for now).
+        
+        Args:
+            query: Query string
+            
+        Returns:
+            List of processed tokens
+        """
+        return self.preprocess(query)
 
